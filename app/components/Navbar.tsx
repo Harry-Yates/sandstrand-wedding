@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { ThemeToggle } from './ThemeToggle'
 import { useTheme } from '@/context/ThemeContext'
+import Image from 'next/image'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -29,9 +30,12 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
-                        <img
+                        <Image
                             src="https://img.freepik.com/premium-vector/monogram-logo-with-initials-js-wedding-logo-design-custom-wreath-wedding-monogram-crest-initial-wedding-logo_553860-762.jpg"
                             alt="JS Monogram Logo"
+                            width={48}
+                            height={48}
+                            priority
                             className="h-12 w-12 rounded-full object-contain"
                         />
                     </Link>
