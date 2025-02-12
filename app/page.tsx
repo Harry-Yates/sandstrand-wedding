@@ -22,7 +22,7 @@ export default function Home() {
           </div>
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
             <h1 className="text-5xl font-bold mb-6">
-              Johanna & Sebbe's Wedding
+              Johanna &amp; Sebbe&apos;s Wedding
             </h1>
             <p className="text-xl mb-8">
               Join us as we celebrate our love on June 15th, 2024
