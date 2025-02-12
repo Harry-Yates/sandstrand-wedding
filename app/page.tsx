@@ -59,7 +59,7 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-gray-600">
-                Sarah and John met in 2018 during a beach cleanup event. Their shared love for the ocean and commitment to environmental conservation brought them together. After five wonderful years of adventures and growing together, they're excited to start this new chapter of their lives.
+                Sarah and John met in 2018 during a beach cleanup event. Their shared love for the ocean and commitment to environmental conservation brought them together. After five wonderful years of adventures and growing together, they&apos;re excited to start this new chapter of their lives.
               </p>
             </div>
           </div>
