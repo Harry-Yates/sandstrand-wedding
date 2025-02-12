@@ -26,7 +26,7 @@ export default function Navbar() {
                             alt="JS Monogram Logo"
                             className="h-12 w-12 rounded-full object-contain"
                         />
-                        <span className="text-2xl font-serif text-white">
+                        <span className={`text-2xl font-serif ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                             Johanna & Sebbe
                         </span>
                     </Link>
@@ -36,13 +36,10 @@ export default function Navbar() {
                         <Link href="/" className="nav-link hover:text-rose-600">
                             Home
                         </Link>
-                        <Link href="#details" className="nav-link hover:text-rose-600">
+                        <Link href="/details" className="nav-link hover:text-rose-600">
                             Details
                         </Link>
-                        <Link href="/rsvp" className="nav-link hover:text-rose-600">
-                            RSVP
-                        </Link>
-                        <Link href="#contact" className="nav-link hover:text-rose-600">
+                        <Link href="/contact" className="nav-link hover:text-rose-600">
                             Contact
                         </Link>
                         <Link
@@ -50,6 +47,12 @@ export default function Navbar() {
                             className="ml-4 px-6 py-2 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-colors"
                         >
                             RSVP Now
+                        </Link>
+                        <Link
+                            href="/admin"
+                            className={`text-sm font-medium hover:text-rose-600 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                        >
+                            Admin
                         </Link>
                     </div>
 
@@ -104,21 +107,14 @@ export default function Navbar() {
                                 Home
                             </Link>
                             <Link
-                                href="#details"
+                                href="/details"
                                 className="block text-xl text-center nav-link hover:text-rose-600"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Details
                             </Link>
                             <Link
-                                href="/rsvp"
-                                className="block text-xl text-center nav-link hover:text-rose-600"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                RSVP
-                            </Link>
-                            <Link
-                                href="#contact"
+                                href="/contact"
                                 className="block text-xl text-center nav-link hover:text-rose-600"
                                 onClick={() => setIsMenuOpen(false)}
                             >
