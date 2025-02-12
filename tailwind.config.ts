@@ -9,16 +9,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
+        primary: {
+          DEFAULT: 'var(--color-primary)',
+          light: 'var(--color-primary-light)',
+          dark: 'var(--color-primary-dark)',
+        },
         background: {
-          DEFAULT: 'var(--background)',
-          dark: 'var(--background-dark)',
-          overlay: 'var(--background-overlay)',
+          DEFAULT: 'var(--color-background)',
+          secondary: 'var(--color-background-secondary)',
+          tertiary: 'var(--color-background-tertiary)',
+          overlay: 'var(--color-background-overlay)',
         },
         text: {
-          DEFAULT: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
+          DEFAULT: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          tertiary: 'var(--color-text-tertiary)',
+        },
+        border: {
+          DEFAULT: 'var(--color-border)',
+          light: 'var(--color-border-light)',
+        },
+        status: {
+          success: 'var(--color-success)',
+          warning: 'var(--color-warning)',
+          error: 'var(--color-error)',
+          info: 'var(--color-info)',
         }
       },
     },

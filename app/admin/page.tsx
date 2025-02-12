@@ -55,31 +55,43 @@ export default function AdminPage() {
             <>
                 <Navbar />
                 <Section dark>
-                    <Title dark>Admin Login</Title>
-                    <Container className="min-h-[70vh] flex flex-col justify-center">
-                        <div className="max-w-xl mx-auto bg-white/90 backdrop-blur-sm shadow-lg rounded-lg px-12 py-8 mt-8">
-                            <form onSubmit={handleLogin} className="space-y-6">
-                                <div className="flex flex-col items-center">
-                                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                    <Container>
+                        <Title dark>Admin Login</Title>
+                        <div className="max-w-md mx-auto mt-8">
+                            <form onSubmit={handleLogin} className="bg-background/90 backdrop-blur-sm shadow-lg rounded-lg p-8 space-y-6">
+                                <div>
+                                    <label htmlFor="password" className="block text-sm font-medium text-text-secondary mb-1">
                                         Password
                                     </label>
                                     <input
-                                        id="password"
                                         type="password"
+                                        id="password"
+                                        required
+                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                 transition-colors px-3 py-2 text-text bg-background"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-80 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-gray-900"
-                                        placeholder="Enter password"
-                                        required
+                                        placeholder="Enter admin password"
                                     />
                                 </div>
-                                {error && <div className="text-center text-red-600 text-sm">{error}</div>}
+
+                                {error && (
+                                    <div className="text-status-error text-sm">
+                                        {error}
+                                    </div>
+                                )}
+
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        className="w-80 bg-rose-600 text-white py-3 px-4 rounded-md hover:bg-rose-700 transition-colors focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+                                        className="w-80 bg-primary text-white py-3 px-4 rounded-md 
+                                                 hover:bg-primary-light transition-colors focus:outline-none 
+                                                 focus:ring-2 focus:ring-primary focus:ring-offset-2
+                                                 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={loading}
                                     >
-                                        Login
+                                        {loading ? 'Logging in...' : 'Login'}
                                     </button>
                                 </div>
                             </form>
@@ -104,32 +116,32 @@ export default function AdminPage() {
                             ) : responses.length === 0 ? (
                                 <div className="text-center text-white">No RSVP responses yet.</div>
                             ) : (
-                                <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden">
+                                <div className="bg-background/90 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden">
                                     <div className="overflow-x-auto">
-                                        <table className="min-w-full divide-y divide-gray-200">
-                                            <thead className="bg-gray-50/50">
+                                        <table className="min-w-full divide-y divide-border">
+                                            <thead className="bg-background/50">
                                                 <tr>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Name</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Email</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Attending</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Guests</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Meal Preference</th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Response Date</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Name</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Email</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Attending</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Guests</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Meal Preference</th>
+                                                    <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Response Date</th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="divide-y divide-gray-200">
+                                            <tbody className="divide-y divide-border">
                                                 {responses.map((res) => (
-                                                    <tr key={res.id} className="hover:bg-gray-50/50">
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{res.name}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{res.email}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                            <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${res.attending ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                                                    <tr key={res.id} className="hover:bg-background/50">
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">{res.name}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">{res.email}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">
+                                                            <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${res.attending ? 'bg-status-success/20 text-status-success' : 'bg-status-error/20 text-status-error'}`}>
                                                                 {res.attending ? 'Yes' : 'No'}
                                                             </span>
                                                         </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{res.guests}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{res.meal_preference || '-'}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{new Date(res.created_at).toLocaleString()}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">{res.guests}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">{res.meal_preference || '-'}</td>
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-text">{new Date(res.created_at).toLocaleString()}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>

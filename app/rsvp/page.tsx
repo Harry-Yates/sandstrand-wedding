@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabase/client';
 import { Container, Title, Section } from '@/components/ui';
-
 import Navbar from '@/components/Navbar';
 
 export default function RSVPPage() {
@@ -44,24 +43,26 @@ export default function RSVPPage() {
                 <Container>
                     <Title dark>RSVP</Title>
                     <div className="max-w-2xl mx-auto mt-8">
-                        <div className="bg-white/90 backdrop-blur-sm shadow-lg rounded-lg p-8">
+                        <div className="bg-background/90 backdrop-blur-sm shadow-lg rounded-lg p-8">
                             {formState === 'success' ? (
                                 <div className="text-center">
-                                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">Thank you!</h3>
-                                    <p className="text-gray-600">Your RSVP has been received.</p>
+                                    <h3 className="text-2xl font-semibold text-text mb-4">Thank you!</h3>
+                                    <p className="text-text-secondary">Your RSVP has been received.</p>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-8">
                                     <div className="space-y-6">
                                         <div>
-                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                                                Name <span className="text-red-500">*</span>
+                                            <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
+                                                Name <span className="text-status-error">*</span>
                                             </label>
                                             <input
                                                 type="text"
                                                 id="name"
                                                 required
-                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-colors px-3 py-2 text-gray-900"
+                                                className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                         focus:border-primary focus:ring-primary sm:text-sm 
+                                                         transition-colors px-3 py-2 text-text bg-background"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                 placeholder="Enter your full name"
@@ -69,14 +70,16 @@ export default function RSVPPage() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                                Email <span className="text-red-500">*</span>
+                                            <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
+                                                Email <span className="text-status-error">*</span>
                                             </label>
                                             <input
                                                 type="email"
                                                 id="email"
                                                 required
-                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-colors px-3 py-2 text-gray-900"
+                                                className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                         focus:border-primary focus:ring-primary sm:text-sm 
+                                                         transition-colors px-3 py-2 text-text bg-background"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                 placeholder="your.email@example.com"
@@ -84,8 +87,8 @@ export default function RSVPPage() {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                Will you be attending? <span className="text-red-500">*</span>
+                                            <label className="block text-sm font-medium text-text-secondary mb-2">
+                                                Will you be attending? <span className="text-status-error">*</span>
                                             </label>
                                             <div className="mt-2 space-x-6">
                                                 <label className="inline-flex items-center cursor-pointer">
@@ -94,9 +97,9 @@ export default function RSVPPage() {
                                                         value="yes"
                                                         checked={formData.attending === 'yes'}
                                                         onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
-                                                        className="form-radio h-4 w-4 text-primary border-gray-300 focus:ring-primary"
+                                                        className="form-radio h-4 w-4 text-primary border-border focus:ring-primary"
                                                     />
-                                                    <span className="ml-2 text-gray-700">Yes</span>
+                                                    <span className="ml-2 text-text">Yes</span>
                                                 </label>
                                                 <label className="inline-flex items-center cursor-pointer">
                                                     <input
@@ -104,9 +107,9 @@ export default function RSVPPage() {
                                                         value="no"
                                                         checked={formData.attending === 'no'}
                                                         onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
-                                                        className="form-radio h-4 w-4 text-primary border-gray-300 focus:ring-primary"
+                                                        className="form-radio h-4 w-4 text-primary border-border focus:ring-primary"
                                                     />
-                                                    <span className="ml-2 text-gray-700">No</span>
+                                                    <span className="ml-2 text-text">No</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -114,12 +117,14 @@ export default function RSVPPage() {
                                         {formData.attending === 'yes' && (
                                             <>
                                                 <div>
-                                                    <label htmlFor="guests" className="block text-sm font-medium text-gray-700 mb-1">
+                                                    <label htmlFor="guests" className="block text-sm font-medium text-text-secondary mb-1">
                                                         Number of Additional Guests
                                                     </label>
                                                     <select
                                                         id="guests"
-                                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-colors px-3 py-2 bg-white text-gray-900"
+                                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                                 transition-colors px-3 py-2 text-text bg-background"
                                                         value={formData.guests}
                                                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                                                     >
@@ -132,13 +137,15 @@ export default function RSVPPage() {
                                                 </div>
 
                                                 <div>
-                                                    <label htmlFor="meal" className="block text-sm font-medium text-gray-700 mb-1">
-                                                        Meal Preference <span className="text-red-500">*</span>
+                                                    <label htmlFor="meal" className="block text-sm font-medium text-text-secondary mb-1">
+                                                        Meal Preference <span className="text-status-error">*</span>
                                                     </label>
                                                     <select
                                                         id="meal"
                                                         required={formData.attending === 'yes'}
-                                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-colors px-3 py-2 bg-white text-gray-900"
+                                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                                 transition-colors px-3 py-2 text-text bg-background"
                                                         value={formData.meal_preference}
                                                         onChange={(e) => setFormData({ ...formData, meal_preference: e.target.value })}
                                                     >
@@ -157,7 +164,11 @@ export default function RSVPPage() {
                                         <button
                                             type="submit"
                                             disabled={formState === 'submitting'}
-                                            className="inline-flex justify-center py-2.5 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="inline-flex justify-center py-2.5 px-6 border border-transparent 
+                                                     shadow-sm text-sm font-medium rounded-md text-white bg-primary 
+                                                     hover:bg-primary-light focus:outline-none focus:ring-2 
+                                                     focus:ring-offset-2 focus:ring-primary transition-colors 
+                                                     disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             {formState === 'submitting' ? 'Submitting...' : 'Submit RSVP'}
                                         </button>
