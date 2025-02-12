@@ -19,10 +19,10 @@ export function Title({
 
     return (
         <Component className={`
-      ${baseStyles}
-      ${dark ? 'text-white' : 'text-text-primary'}
-      ${className}
-    `}>
+            ${baseStyles}
+            ${dark ? 'text-text-primary' : 'text-text-primary'}
+            ${className}
+        `}>
             {children}
         </Component>
     );

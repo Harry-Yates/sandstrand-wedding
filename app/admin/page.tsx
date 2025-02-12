@@ -108,9 +108,9 @@ export default function AdminPage() {
         return (
             <>
                 <Navbar />
-                <Section>
+                <Section dark>
                     <Container>
-                        <Title>Admin Login</Title>
+                        <Title dark>Admin Login</Title>
                         <div className="max-w-md mx-auto mt-8">
                             <form onSubmit={handleLogin} className="bg-background-secondary rounded-lg p-8 space-y-6">
                                 <div>
@@ -158,10 +158,10 @@ export default function AdminPage() {
     return (
         <>
             <Navbar />
-            <Section>
+            <Section dark>
                 <Container>
                     <div className="flex justify-between items-center mb-8">
-                        <Title>RSVP Responses ({responses.length})</Title>
+                        <Title dark>RSVP Responses ({responses.length})</Title>
                         <button
                             onClick={() => setIsAuthenticated(false)}
                             className="px-4 py-2 text-sm font-medium text-text-primary hover:text-primary transition-colors"

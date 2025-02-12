@@ -9,7 +9,7 @@ export function Section({ children, className = '', dark = false, noPadding = fa
     return (
         <section className={`
             relative min-h-screen
-            ${dark ? 'bg-background-tertiary' : 'bg-background'}
+            ${dark ? 'bg-background-tertiary text-text-primary' : 'bg-background text-text-primary'}
             ${className}
         `}>
             {dark && <div className="absolute inset-0 bg-background-overlay" />}
