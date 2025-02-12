@@ -33,13 +33,22 @@ export default function Navbar() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <Link href="/" className="nav-link hover:text-rose-600">
+                        <Link
+                            href="/"
+                            className={`text-sm font-medium hover:text-rose-600 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                        >
                             Home
                         </Link>
-                        <Link href="/details" className="nav-link hover:text-rose-600">
+                        <Link
+                            href="/details"
+                            className={`text-sm font-medium hover:text-rose-600 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                        >
                             Details
                         </Link>
-                        <Link href="/contact" className="nav-link hover:text-rose-600">
+                        <Link
+                            href="/contact"
+                            className={`text-sm font-medium hover:text-rose-600 transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                        >
                             Contact
                         </Link>
                         <Link
@@ -58,7 +67,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 rounded-md text-gray-600 hover:text-rose-600 focus:outline-none"
+                        className={`md:hidden p-2 rounded-md hover:text-rose-600 focus:outline-none ${isScrolled ? 'text-gray-900' : 'text-white'}`}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
@@ -97,30 +106,37 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden absolute top-20 left-0 right-0 bg-white/95 backdrop-blur-sm border-b">
-                        <div className="px-4 py-6 space-y-6">
+                    <div className="md:hidden absolute top-20 left-0 right-0 bg-black/80 backdrop-blur-sm">
+                        <div className="px-4 py-6 space-y-4">
                             <Link
                                 href="/"
-                                className="block text-xl text-center nav-link hover:text-rose-600"
+                                className="block text-center text-white hover:text-rose-400 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Home
                             </Link>
                             <Link
                                 href="/details"
-                                className="block text-xl text-center nav-link hover:text-rose-600"
+                                className="block text-center text-white hover:text-rose-400 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Details
                             </Link>
                             <Link
                                 href="/contact"
-                                className="block text-xl text-center nav-link hover:text-rose-600"
+                                className="block text-center text-white hover:text-rose-400 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Contact
                             </Link>
-                            <div className="pt-4 border-t">
+                            <Link
+                                href="/admin"
+                                className="block text-center text-white hover:text-rose-400 transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Admin
+                            </Link>
+                            <div className="pt-4 border-t border-gray-600">
                                 <Link
                                     href="/rsvp"
                                     className="block w-full py-3 text-center bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-colors"
