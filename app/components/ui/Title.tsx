@@ -2,12 +2,14 @@ interface TitleProps {
     children: React.ReactNode;
     as?: 'h1' | 'h2' | 'h3';
     className?: string;
+    dark?: boolean;
 }
 
 export function Title({
     children,
     as: Component = 'h1',
     className = '',
+    dark = false,
 }: TitleProps) {
     const baseStyles = {
         h1: 'text-4xl md:text-5xl font-bold mb-6',
@@ -18,7 +20,7 @@ export function Title({
     return (
         <Component className={`
       ${baseStyles}
-      text-text-primary
+      ${dark ? 'text-white' : 'text-text-primary'}
       ${className}
     `}>
             {children}
