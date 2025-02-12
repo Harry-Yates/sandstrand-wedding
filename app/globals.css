@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light theme (default) */
 :root {
   /* Core colours */
   --color-primary: #e11d48;
   --color-primary-light: #f43f5e;
   --color-primary-dark: #be123c;
 
-  /* Neutral colours */
+  /* Neutral colours - clean white theme */
   --color-background: #ffffff;
-  --color-background-secondary: #f9fafb;
-  --color-background-tertiary: #f3f4f6;
-  --color-background-overlay: rgba(0, 0, 0, 0.3);
+  --color-background-secondary: #ffffff;
+  --color-background-tertiary: #fafafa;
+  --color-background-overlay: rgba(0, 0, 0, 0.1);
 
-  /* Text colours */
-  --color-text-primary: #111827;
-  --color-text-secondary: #4b5563;
-  --color-text-tertiary: #6b7280;
+  /* Text colours - clear black text */
+  --color-text-primary: #000000;
+  --color-text-secondary: #1a1a1a;
+  --color-text-tertiary: #404040;
 
-  /* Border colours */
-  --color-border: #e5e7eb;
-  --color-border-light: #f3f4f6;
+  /* Border colours - subtle borders */
+  --color-border: #e2e2e2;
+  --color-border-light: #f0f0f0;
 
   /* Status colours */
   --color-success: #059669;
@@ -30,58 +31,35 @@
   --color-info: #3b82f6;
 }
 
-/* Could add dark theme variables */
+/* Dark theme */
 [data-theme='dark'] {
   /* Core colours */
   --color-primary: #f43f5e;
   --color-primary-light: #fb7185;
   --color-primary-dark: #e11d48;
 
-  /* Neutral colours */
-  --color-background: #0a0a0a;
-  --color-background-secondary: #18181b;
-  --color-background-tertiary: #27272a;
+  /* Neutral colours - softer dark theme */
+  --color-background: #121212;
+  --color-background-secondary: #1e1e1e;
+  --color-background-tertiary: #242424;
   --color-background-overlay: rgba(0, 0, 0, 0.5);
 
-  /* Text colours */
-  --color-text-primary: #f9fafb;
-  --color-text-secondary: #e5e7eb;
-  --color-text-tertiary: #d1d5db;
+  /* Text colours - warmer whites */
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #e7e5e4;
+  --color-text-tertiary: #d6d3d1;
 
-  /* Border colours */
-  --color-border: #27272a;
-  --color-border-light: #3f3f46;
+  /* Border colours - softer borders */
+  --color-border: #262626;
+  --color-border-light: #303030;
 
   /* Status colours remain the same for consistency */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Core colours */
-    --color-primary: #f43f5e;
-    --color-primary-light: #fb7185;
-    --color-primary-dark: #e11d48;
-
-    /* Neutral colours */
-    --color-background: #0a0a0a;
-    --color-background-secondary: #18181b;
-    --color-background-tertiary: #27272a;
-    --color-background-overlay: rgba(0, 0, 0, 0.5);
-
-    /* Text colours */
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #e5e7eb;
-    --color-text-tertiary: #d1d5db;
-
-    /* Border colours */
-    --color-border: #27272a;
-    --color-border-light: #3f3f46;
-  }
-}
-
+/* Base styles */
 body {
+  background-color: var(--color-background);
   color: var(--color-text-primary);
-  background: var(--color-background);
   font-family: Arial, Helvetica, sans-serif;
 }
 

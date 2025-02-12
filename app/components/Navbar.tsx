@@ -2,10 +2,13 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { ThemeToggle } from './ThemeToggle'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { theme } = useTheme()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,9 +18,13 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const navBackground = isScrolled ? 'bg-background/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+    const linkClass = `text-sm font-medium transition-colors hover:text-primary ${theme === 'light' ? 'text-text-primary' : 'text-white'}`
+    const rsvpClass = "text-sm font-medium px-4 py-2 rounded-full bg-primary text-white hover:bg-primary-light transition-colors"
+    const adminClass = linkClass
+
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
-            }`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${navBackground}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
@@ -30,46 +37,28 @@ export default function Navbar() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        <Link
-                            href="/"
-                            className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-text' : 'text-white'
-                                }`}
-                        >
+                    <div className="hidden md:flex md:items-center md:space-x-8">
+                        <Link href="/" className={linkClass}>
                             Home
                         </Link>
-                        <Link
-                            href="/details"
-                            className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-text' : 'text-white'
-                                }`}
-                        >
+                        <Link href="/details" className={linkClass}>
                             Details
                         </Link>
-                        <Link
-                            href="/contact"
-                            className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-text' : 'text-white'
-                                }`}
-                        >
+                        <Link href="/contact" className={linkClass}>
                             Contact
                         </Link>
-                        <Link
-                            href="/rsvp"
-                            className="ml-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-primary-light transition-colors"
-                        >
-                            RSVP Now
-                        </Link>
-                        <Link
-                            href="/admin"
-                            className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-text' : 'text-white'
-                                }`}
-                        >
+                        <Link href="/admin" className={adminClass}>
                             Admin
                         </Link>
+                        <Link href="/rsvp" className={rsvpClass}>
+                            RSVP
+                        </Link>
+                        <ThemeToggle />
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className={`md:hidden p-2 rounded-md hover:text-rose-600 focus:outline-none ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                        className={`md:hidden p-2 rounded-md hover:text-primary focus:outline-none ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
@@ -79,13 +68,9 @@ export default function Navbar() {
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="h-8 w-8"
+                                className="h-6 w-6"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         ) : (
                             <svg
@@ -94,63 +79,57 @@ export default function Navbar() {
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="h-8 w-8"
+                                className="h-6 w-6"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
                         )}
                     </button>
                 </div>
-
-                {/* Mobile Menu */}
-                {isMenuOpen && (
-                    <div className="md:hidden absolute top-20 left-0 right-0 bg-black/80 backdrop-blur-sm">
-                        <div className="px-4 py-6 space-y-4">
-                            <Link
-                                href="/"
-                                className="block text-center text-white hover:text-rose-400 transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Home
-                            </Link>
-                            <Link
-                                href="/details"
-                                className="block text-center text-white hover:text-rose-400 transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Details
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="block text-center text-white hover:text-rose-400 transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Contact
-                            </Link>
-                            <Link
-                                href="/admin"
-                                className="block text-center text-white hover:text-rose-400 transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Admin
-                            </Link>
-                            <div className="pt-4 border-t border-gray-600">
-                                <Link
-                                    href="/rsvp"
-                                    className="block w-full py-3 text-center bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    RSVP Now
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
+
+            {/* Mobile Navigation */}
+            {isMenuOpen && (
+                <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border">
+                    <div className="px-4 py-3 space-y-3">
+                        <Link
+                            href="/"
+                            className="block text-text-primary hover:text-primary transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            href="/details"
+                            className="block text-text-primary hover:text-primary transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Details
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="block text-text-primary hover:text-primary transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Contact
+                        </Link>
+                        <Link
+                            href="/admin"
+                            className="block text-text-primary hover:text-primary transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Admin
+                        </Link>
+                        <Link
+                            href="/rsvp"
+                            className="block text-center py-2 bg-primary text-white rounded-full hover:bg-primary-light transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            RSVP
+                        </Link>
+                    </div>
+                </div>
+            )}
         </nav>
-    )
+    );
 } 
