@@ -1,30 +1,39 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { supabase } from '../../lib/supabase/client';
+
+// Define the type for an RSVP response
+interface RSVPResponse {
+    id: string;
+    name: string;
+    email: string;
+    attending: boolean;
+    guests: number;
+    meal_preference: string | null;
+    created_at: string;
+}
 
 export default function AdminPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [responses, setResponses] = useState<any[]>([]);
+    const [responses, setResponses] = useState<RSVPResponse[]>([]);
     const [loading, setLoading] = useState(false);
 
-    // ADMIN_PASSWORD is hard-coded for a simple demo; move to secure server-side auth in production.
-    const ADMIN_PASSWORD = "admin123";
+    // ADMIN_PASSWORD is hard-coded for demonstration.
+    const ADMIN_PASSWORD = 'admin123';
 
-    // Handle the login form submission.
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (password === ADMIN_PASSWORD) {
             setIsAuthenticated(true);
             fetchResponses();
         } else {
-            setError("Incorrect password. Please try again.")
+            setError('Incorrect password. Please try again.');
         }
     };
 
-    // Fetch RSVP responses from Supabase.
     const fetchResponses = async () => {
         setLoading(true);
         const { data, error } = await supabase
@@ -39,7 +48,6 @@ export default function AdminPage() {
         setLoading(false);
     };
 
-    // If the user is not authenticated, show the login form.
     if (!isAuthenticated) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -73,7 +81,7 @@ export default function AdminPage() {
         );
     }
 
-    // Once authenticated, display the list of RSVP responses.
+    // Authenticated view: display RSVP responses.
     return (
         <div className="min-h-screen bg-gray-50 p-8">
             <h1 className="text-3xl font-bold text-center mb-8">Admin - RSVP Responses</h1>
