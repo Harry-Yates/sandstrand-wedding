@@ -26,9 +26,6 @@ export default function Navbar() {
                             alt="JS Monogram Logo"
                             className="h-12 w-12 rounded-full object-contain"
                         />
-                        <span className={`text-2xl font-serif ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
-                            Johanna & Sebbe
-                        </span>
                     </Link>
 
                     {/* Desktop Navigation */}

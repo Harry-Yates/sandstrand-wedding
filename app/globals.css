@@ -3,8 +3,34 @@
 @tailwind utilities;
 
 :root {
+  /* Base theme */
+  --color-primary: #e11d48;
+  /* rose-600 */
+  --color-secondary: #f43f5e;
+  /* rose-500 */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-dark: #000000;
+  --background-overlay: rgba(0, 0, 0, 0.3);
+  --text-primary: #111827;
+  /* gray-900 */
+  --text-secondary: #4b5563;
+  /* gray-600 */
+}
+
+/* Could add dark theme variables */
+[data-theme='dark'] {
+  /* Base theme */
+  --color-primary: #e11d48;
+  /* rose-600 */
+  --color-secondary: #f43f5e;
+  /* rose-500 */
+  --background: #ffffff;
+  --background-dark: #000000;
+  --background-overlay: rgba(0, 0, 0, 0.3);
+  --text-primary: #111827;
+  /* gray-900 */
+  --text-secondary: #4b5563;
+  /* gray-600 */
 }
 
 @media (prefers-color-scheme: dark) {
