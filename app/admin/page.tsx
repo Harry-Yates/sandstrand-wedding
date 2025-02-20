@@ -13,6 +13,15 @@ interface RSVPResponse {
     attending: boolean;
     guests: number;
     meal_preference: string | null;
+    bus_pickup_location: string | null;
+    tennis_level: string | null;
+    attending_days: {
+        all_days: boolean;
+        tennis_day: boolean;
+        wedding_day: boolean;
+        beach_day: boolean;
+    };
+    additional_notes: string | null;
     created_at: string;
 }
 
@@ -216,6 +225,10 @@ export default function AdminPage() {
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Status</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Guests</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Meal</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Bus Pickup</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Tennis</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Days</th>
+                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Notes</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Date</th>
                                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Actions</th>
                                         </tr>
@@ -235,6 +248,20 @@ export default function AdminPage() {
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.guests}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.meal_preference || '-'}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.bus_pickup_location || '-'}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.tennis_level || '-'}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">
+                                                    {response.attending_days?.all_days ? 'All Days' :
+                                                        [
+                                                            response.attending_days?.tennis_day && 'Tennis',
+                                                            response.attending_days?.wedding_day && 'Wedding',
+                                                            response.attending_days?.beach_day && 'Beach'
+                                                        ].filter(Boolean).join(', ') || '-'
+                                                    }
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-normal text-sm text-text-primary max-w-xs">
+                                                    {response.additional_notes || '-'}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-secondary">
                                                     {new Date(response.created_at).toLocaleDateString()}
                                                 </td>

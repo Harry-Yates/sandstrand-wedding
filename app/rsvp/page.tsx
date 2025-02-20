@@ -13,6 +13,15 @@ export default function RSVPPage() {
         attending: 'yes',
         guests: '0',
         meal_preference: '',
+        bus_pickup_location: '',
+        tennis_level: '',
+        attending_days: {
+            all_days: false,
+            tennis_day: false,
+            wedding_day: false,
+            beach_day: false,
+        },
+        additional_notes: '',
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -26,6 +35,10 @@ export default function RSVPPage() {
                 attending: formData.attending === 'yes',
                 guests: parseInt(formData.guests),
                 meal_preference: formData.meal_preference,
+                bus_pickup_location: formData.bus_pickup_location,
+                tennis_level: formData.tennis_level,
+                attending_days: formData.attending_days,
+                additional_notes: formData.additional_notes,
             }]);
 
             if (error) throw error;
@@ -155,6 +168,133 @@ export default function RSVPPage() {
                                                         <option value="vegetarian">Vegetarian</option>
                                                         <option value="vegan">Vegan</option>
                                                     </select>
+                                                </div>
+
+                                                <div>
+                                                    <label htmlFor="bus" className="block text-sm font-medium text-text-secondary mb-1">
+                                                        Bus Pickup Location
+                                                    </label>
+                                                    <select
+                                                        id="bus"
+                                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                                 transition-colors px-3 py-2 text-text bg-background"
+                                                        value={formData.bus_pickup_location}
+                                                        onChange={(e) => setFormData({ ...formData, bus_pickup_location: e.target.value })}
+                                                    >
+                                                        <option value="">I'll make my own way</option>
+                                                        <option value="riviera_strand">Riviera Strand</option>
+                                                        <option value="skansen">Skansen</option>
+                                                    </select>
+                                                </div>
+
+                                                <div>
+                                                    <label htmlFor="tennis" className="block text-sm font-medium text-text-secondary mb-1">
+                                                        Tennis Level 🎾
+                                                    </label>
+                                                    <select
+                                                        id="tennis"
+                                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                                 transition-colors px-3 py-2 text-text bg-background"
+                                                        value={formData.tennis_level}
+                                                        onChange={(e) => setFormData({ ...formData, tennis_level: e.target.value })}
+                                                    >
+                                                        <option value="">Please select...</option>
+                                                        <option value="pro">Total Pro</option>
+                                                        <option value="intermediate">Intermediate</option>
+                                                        <option value="beginner">Beginner</option>
+                                                        <option value="vibes">Just here for the vibes!</option>
+                                                    </select>
+                                                </div>
+
+                                                <div>
+                                                    <label className="block text-sm font-medium text-text-secondary mb-2">
+                                                        Which days will you be joining us? 🎉
+                                                    </label>
+                                                    <div className="space-y-2">
+                                                        <label className="flex items-center">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={formData.attending_days.all_days}
+                                                                onChange={(e) => setFormData({
+                                                                    ...formData,
+                                                                    attending_days: {
+                                                                        all_days: e.target.checked,
+                                                                        tennis_day: e.target.checked,
+                                                                        wedding_day: e.target.checked,
+                                                                        beach_day: e.target.checked
+                                                                    }
+                                                                })}
+                                                                className="form-checkbox h-4 w-4 text-primary border-border focus:ring-primary"
+                                                            />
+                                                            <span className="ml-2 text-text">All three days – Tennis, Wedding, & Beach Party! 🎾💍🏖️</span>
+                                                        </label>
+                                                        <label className="flex items-center">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={formData.attending_days.tennis_day}
+                                                                onChange={(e) => setFormData({
+                                                                    ...formData,
+                                                                    attending_days: {
+                                                                        ...formData.attending_days,
+                                                                        tennis_day: e.target.checked,
+                                                                        all_days: false
+                                                                    }
+                                                                })}
+                                                                className="form-checkbox h-4 w-4 text-primary border-border focus:ring-primary"
+                                                            />
+                                                            <span className="ml-2 text-text">June 19th – Tennis Tournament 🎾</span>
+                                                        </label>
+                                                        <label className="flex items-center">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={formData.attending_days.wedding_day}
+                                                                onChange={(e) => setFormData({
+                                                                    ...formData,
+                                                                    attending_days: {
+                                                                        ...formData.attending_days,
+                                                                        wedding_day: e.target.checked,
+                                                                        all_days: false
+                                                                    }
+                                                                })}
+                                                                className="form-checkbox h-4 w-4 text-primary border-border focus:ring-primary"
+                                                            />
+                                                            <span className="ml-2 text-text">June 20th – Wedding & Celebration 💒</span>
+                                                        </label>
+                                                        <label className="flex items-center">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={formData.attending_days.beach_day}
+                                                                onChange={(e) => setFormData({
+                                                                    ...formData,
+                                                                    attending_days: {
+                                                                        ...formData.attending_days,
+                                                                        beach_day: e.target.checked,
+                                                                        all_days: false
+                                                                    }
+                                                                })}
+                                                                className="form-checkbox h-4 w-4 text-primary border-border focus:ring-primary"
+                                                            />
+                                                            <span className="ml-2 text-text">June 21st – Beach Party 🌊🍕</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div className="mt-4">
+                                                    <label htmlFor="additional_notes" className="block text-sm font-medium text-text-secondary mb-1">
+                                                        Anything we need to know? 📝
+                                                    </label>
+                                                    <textarea
+                                                        id="additional_notes"
+                                                        rows={4}
+                                                        className="mt-1 block w-full rounded-md border-border shadow-sm 
+                                                                 focus:border-primary focus:ring-primary sm:text-sm 
+                                                                 transition-colors px-3 py-2 text-text bg-background"
+                                                        value={formData.additional_notes}
+                                                        onChange={(e) => setFormData({ ...formData, additional_notes: e.target.value })}
+                                                        placeholder="Any dietary restrictions, accessibility requirements, or other things we should know about?"
+                                                    />
                                                 </div>
                                             </>
                                         )}

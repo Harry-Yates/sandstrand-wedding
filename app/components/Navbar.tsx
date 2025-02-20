@@ -44,6 +44,9 @@ export default function Navbar() {
                         <Link href="/details" className={linkClass}>
                             Details
                         </Link>
+                        <Link href="/faq" className={linkClass}>
+                            FAQ
+                        </Link>
                         <Link href="/contact" className={linkClass}>
                             Contact
                         </Link>
@@ -105,6 +108,13 @@ export default function Navbar() {
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Details
+                        </Link>
+                        <Link
+                            href="/faq"
+                            className="block text-text-primary hover:text-primary transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            FAQ
                         </Link>
                         <Link
                             href="/contact"
