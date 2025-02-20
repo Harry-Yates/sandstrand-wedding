@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Johanna & Sebastian's Wedding Weekend",
     description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
-    images: ["/assets/images/IMG_1143.jpg"],
+    images: ["/assets/images/meta.png"],
   },
 };
 
