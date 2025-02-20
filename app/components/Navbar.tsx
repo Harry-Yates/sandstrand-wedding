@@ -132,7 +132,7 @@ export default function Navbar() {
                         </Link>
                         <Link
                             href="/rsvp"
-                            className="block text-center py-2 bg-primary text-white rounded-full hover:bg-primary-light transition-colors"
+                            className="block text-center py-2 bg-[#d3415d] text-white rounded-full transition-colors hover:bg-[#d3415d]"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             RSVP
