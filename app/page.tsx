@@ -11,7 +11,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative h-[80vh] flex items-center justify-center">
           <div className="absolute inset-0">
-            <UnsplashImageHolder orientation="landscape" />
+            <UnsplashImageHolder />
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
@@ -36,7 +36,7 @@ export default function Home() {
             {/* Image Column - Full height, aligned to left edge */}
             <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">
               <div className="h-[300px] md:h-full w-full relative">
-                <UnsplashImageHolder className="absolute inset-0 w-full h-full object-cover" />
+                <UnsplashImageHolder />
               </div>
             </div>
 

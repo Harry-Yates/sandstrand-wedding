@@ -2,8 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+type UnsplashImage = {
+    urls: {
+        regular: string
+    }
+    alt_description: string | null
+    user: {
+        name: string
+    }
+    links: {
+        html: string
+    }
+}
+
 export default function UnsplashImageHolder() {
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState<UnsplashImage | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null);
 
@@ -20,7 +33,7 @@ export default function UnsplashImageHolder() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const data = await response.json();
+                const data = await response.json() as UnsplashImage;
                 setImage(data);
             } catch (error) {
                 console.error('Error fetching image:', error);
@@ -46,7 +59,7 @@ export default function UnsplashImageHolder() {
             {image && (
                 <Image
                     src={image.urls.regular}
-                    alt={image.alt_description || 'Unsplash image'}
+                    alt={image.alt_description || 'Wedding background image'}
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
