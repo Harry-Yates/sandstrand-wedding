@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { ThemeToggle } from './ThemeToggle'
+// import { ThemeToggle } from './ThemeToggle'
 import { useTheme } from '@/context/ThemeContext'
 
 export default function Navbar() {
@@ -56,7 +56,7 @@ export default function Navbar() {
                         <Link href="/rsvp" className={rsvpClass}>
                             RSVP
                         </Link>
-                        <ThemeToggle />
+                        {/* <ThemeToggle /> */}
                     </div>
 
                     {/* Mobile Menu Button */}

@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="space-y-20">
+      <main>
         {/* Hero Section */}
         <section className="relative h-[80vh] flex items-center justify-center">
           <div className="absolute inset-0">
