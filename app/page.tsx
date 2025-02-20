@@ -24,11 +24,14 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
-            <h1 className="text-5xl font-bold mb-6">
-              Johanna &amp; Sebbe&apos;s Wedding
-            </h1>
-            <p className="text-xl mb-8">
-              Join us as we celebrate our love on June 15th, 2024
+            <h2 className="text-4xl font-bold mb-4">
+              💍 JOHANNA &amp; SEBASTIAN&apos;S WEDDING WEEKEND 💃✨
+            </h2>
+            <p className="text-xl mb-6">
+              June 19-21, 2025 | 📍 Båstad, Sweden
+            </p>
+            <p className="text-lg mb-8">
+              A weekend filled with love, laughter, and celebration—come join us!
             </p>
             <Link
               href="/rsvp"
@@ -58,17 +61,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Content Column - Pushed to right side with padding */}
+            {/* Content Column - Now starts directly with the list */}
             <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
-              <h2 className="text-4xl font-bold mb-4">
-                💍 JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND 💃✨
-              </h2>
-              <p className="text-xl mb-6">
-                June 19-21, 2025 | 📍 Båstad, Sweden
-              </p>
-              <p className="text-lg mb-8">
-                A weekend filled with love, laughter, and celebration—come join us!
-              </p>
               <ul className="space-y-6">
                 <li className="bg-white/50 p-6 rounded-xl">
                   <strong className="text-xl block mb-2">🎾 June 19 – Tennis Tournament</strong>
