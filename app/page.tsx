@@ -70,6 +70,11 @@ export default function Home() {
 
             {/* Content Column - Now starts directly with the list */}
             <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
+              {/* Centered Schedule Header */}
+              <h2 className="text-2xl sm:text-3xl bungee-regular mb-8 text-center">
+                📅 Wedding Weekend&nbsp;Schedule
+              </h2>
+
               <ul className="space-y-6">
                 <li className="bg-white/50 p-6 rounded-xl">
                   <strong className="text-xl block mb-2 bungee-regular">🎾 June 19 – Tennis&nbsp;Tournament</strong>
