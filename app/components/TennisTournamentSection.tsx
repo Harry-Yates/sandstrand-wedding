@@ -58,28 +58,51 @@ export default function TennisTournamentSection() {
 
                 {/* Image Column - Full height, aligned to right edge */}
                 <div className="md:w-1/2 md:absolute md:right-0 md:top-0 md:bottom-0">
-                    <div className="h-[300px] md:h-full w-full relative grid grid-cols-2 grid-rows-2 gap-2">
-                        <Image
-                            src="/assets/images/tennis-1.jpg"
-                            alt="Wimbledon court"
-                            fill
-                            className="object-cover col-span-2"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <Image
-                            src="/assets/images/tennis-2.jpg"
-                            alt="Tennis details"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 25vw"
-                        />
-                        <Image
-                            src="/assets/images/tennis-3.jpg"
-                            alt="Tennis atmosphere"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 25vw"
-                        />
+                    <div className="h-[300px] md:h-full w-full relative">
+                        <div className="absolute top-0 left-0 w-1/2 h-1/2">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?q=80&w=800"
+                                    alt="Wimbledon tennis court"
+                                    className="object-cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                />
+                            </div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-1/2 h-1/2">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=800"
+                                    alt="Tennis court lines"
+                                    className="object-cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                />
+                            </div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-1/2 h-1/2">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=800"
+                                    alt="Tennis ball on grass court"
+                                    className="object-cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                />
+                            </div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-1/2 h-1/2">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=800"
+                                    alt="Curious cow close-up"
+                                    className="object-cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
