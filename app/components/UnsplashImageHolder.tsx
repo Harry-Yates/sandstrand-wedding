@@ -10,9 +10,10 @@ export default function UnsplashImageHolder() {
     useEffect(() => {
         const fetchImage = async () => {
             try {
-                const response = await fetch('https://api.unsplash.com/photos/random?count=1', {
+                const response = await fetch('https://api.unsplash.com/photos/random?orientation=landscape', {
                     headers: {
-                        Authorization: `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}`
+                        Authorization: `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}`,
+                        'Accept-Version': 'v1'
                     }
                 });
                 console.log('Response status:', response.status);
@@ -20,7 +21,7 @@ export default function UnsplashImageHolder() {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setImage(data[0]);
+                setImage(data);
             } catch (error) {
                 console.error('Error fetching image:', error);
                 setError(error as Error);
@@ -45,7 +46,7 @@ export default function UnsplashImageHolder() {
             {image && (
                 <Image
                     src={image.urls.regular}
-                    alt={image.alt_description}
+                    alt={image.alt_description || 'Unsplash image'}
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"

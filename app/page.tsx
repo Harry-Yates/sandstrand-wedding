@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import UnsplashImageHolder from "./components/UnsplashImageHolder";
@@ -12,7 +11,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative h-[80vh] flex items-center justify-center">
           <div className="absolute inset-0">
-            <UnsplashImageHolder />
+            <UnsplashImageHolder orientation="landscape" />
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
