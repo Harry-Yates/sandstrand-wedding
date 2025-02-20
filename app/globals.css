@@ -60,7 +60,7 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-quicksand), system-ui, -apple-system, sans-serif;
 }
 
 /* Add smooth scrolling */
@@ -75,4 +75,28 @@ html {
   z-index: 50;
   backdrop-filter: blur(8px);
   background-color: rgba(var(--color-background), 0.8);
+}
+
+/* Add this to ensure Bungee is properly applied */
+.font-bungee {
+  font-family: var(--font-bungee), system-ui, -apple-system, sans-serif;
+}
+
+/* Define the font classes */
+.sigmar-one-regular {
+  font-family: var(--font-sigmar), serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bungee-regular {
+  font-family: var(--font-bungee), serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quicksand-regular {
+  font-family: var(--font-quicksand), sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

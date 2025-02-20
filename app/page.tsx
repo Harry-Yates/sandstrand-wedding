@@ -24,18 +24,25 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
-            <h2 className="text-4xl font-bold mb-4">
-              💍 JOHANNA &amp; SEBASTIAN&apos;S WEDDING WEEKEND 💃✨
+            {/* Responsive heading - smaller on mobile, larger on desktop */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl bungee-regular mb-4 leading-tight tracking-wide">
+              💍 JOHANNA &amp; SEBASTIAN&apos;S WEDDING&nbsp;WEEKEND 💃✨
             </h2>
-            <p className="text-xl mb-6">
-              June 19-21, 2025 | 📍 Båstad, Sweden
+
+            {/* Responsive date text */}
+            <p className="text-lg sm:text-xl mb-4 sm:mb-6 sigmar-one-regular tracking-wide">
+              June 19-21, 2025 |&nbsp;📍&nbsp;Båstad,&nbsp;Sweden
             </p>
-            <p className="text-lg mb-8">
-              A weekend filled with love, laughter, and celebration—come join us!
+
+            {/* Changed to Quicksand for better readability */}
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 quicksand-regular max-w-prose mx-auto font-medium">
+              A weekend filled with love, laughter, and&nbsp;celebration—come&nbsp;join&nbsp;us!
             </p>
+
+            {/* RSVP button with responsive padding and text size */}
             <Link
               href="/rsvp"
-              className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full sigmar-one-regular hover:bg-gray-100 transition-colors text-base sm:text-lg"
             >
               RSVP Now
             </Link>
@@ -65,7 +72,7 @@ export default function Home() {
             <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
               <ul className="space-y-6">
                 <li className="bg-white/50 p-6 rounded-xl">
-                  <strong className="text-xl block mb-2">🎾 June 19 – Tennis Tournament</strong>
+                  <strong className="text-xl block mb-2 bungee-regular">🎾 June 19 – Tennis&nbsp;Tournament</strong>
                   Plantahagens Tennis Courts | ⏰ 17:00-21:00
                   <br />
                   Dress Code: Wimbledon Chic (white, green, or pink)
@@ -73,7 +80,7 @@ export default function Home() {
                   Featuring smörgåstårta & rosé wine 🍷✨
                 </li>
                 <li className="bg-white/50 p-6 rounded-xl">
-                  <strong className="text-xl block mb-2">💒 June 20 – Wedding & Party</strong>
+                  <strong className="text-xl block mb-2 bungee-regular">💒 June 20 – Wedding &&nbsp;Party</strong>
                   Hovs Kyrka | ⏰ 14:30 Ceremony
                   <br />
                   Buses leave 13:40 (Only from Riviera Strand & Skansen)
@@ -85,7 +92,7 @@ export default function Home() {
                   Dress Code: Colourful dress & suite (NO dark blue!)
                 </li>
                 <li className="bg-white/50 p-6 rounded-xl">
-                  <strong className="text-xl block mb-2">🏖️ June 21 – Beach Party</strong>
+                  <strong className="text-xl block mb-2 bungee-regular">🏖️ June 21 – Beach&nbsp;Party</strong>
                   Badkrukan | 🍕 Pizza & Drinks ⏰ 13:00 Party starts
                   <br />
                   Swim, dance, and celebrate!
