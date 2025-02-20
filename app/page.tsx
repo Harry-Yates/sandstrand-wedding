@@ -29,8 +29,8 @@ export default function Home() {
               💍 JOHANNA &amp; SEBASTIAN&apos;S WEDDING&nbsp;WEEKEND 💃✨
             </h2>
 
-            {/* Responsive date text */}
-            <p className="text-lg sm:text-xl mb-4 sm:mb-6 sigmar-one-regular tracking-wide">
+            {/* Changed from Sigmar to Bungee */}
+            <p className="text-lg sm:text-xl mb-4 sm:mb-6 bungee-regular tracking-wide">
               June 19-21, 2025 |&nbsp;📍&nbsp;Båstad,&nbsp;Sweden
             </p>
 
@@ -42,7 +42,7 @@ export default function Home() {
             {/* RSVP button with responsive padding and text size */}
             <Link
               href="/rsvp"
-              className="inline-block bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full sigmar-one-regular hover:bg-gray-100 transition-colors text-base sm:text-lg"
+              className="inline-block bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full bungee-regular hover:bg-gray-100 transition-colors text-base sm:text-lg"
             >
               RSVP Now
             </Link>

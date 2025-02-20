@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bungee, Sigmar, Quicksand } from 'next/font/google';
+import { Bungee, Quicksand } from 'next/font/google';
 import "./globals.css";
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -8,14 +8,6 @@ const bungee = Bungee({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-bungee',
-  display: 'swap',
-});
-
-// Configure Sigmar
-const sigmar = Sigmar({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-sigmar',
   display: 'swap',
 });
 
@@ -38,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bungee.variable} ${sigmar.variable} ${quicksand.variable} antialiased`}>
+      <body className={`${bungee.variable} ${quicksand.variable} antialiased`}>
         <ThemeProvider>
           {children}
         </ThemeProvider>
