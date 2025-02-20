@@ -49,7 +49,7 @@ export default function WeddingDaySection() {
 
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">🌿 16:30 - Dance Around the Midsummer Pole</h3>
-                            <p>Let's keep the Swedish tradition alive! Expect hopping, twirling, and lots of laughter. Comfy shoes are a must! 🐸✨</p>
+                            <p>Let&aposs keep the Swedish tradition alive! Expect hopping, twirling, and lots of laughter. Comfy shoes are a must! 🐸✨</p>
                         </div>
 
                         <div className="bg-white/20 p-6 rounded-xl">

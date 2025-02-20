@@ -21,7 +21,7 @@ export default function TennisTournamentSection() {
                         {/* Main Description */}
                         <div className="bg-white/10 p-6 rounded-xl mb-6">
                             <h3 className="text-xl mb-4 bungee-regular">Game, Set, Love!</h3>
-                            <p>Join us for a smashing start to our wedding celebrations with an epic grass court showdown. Whether you're a seasoned pro or just here for the vibes, this will be a night of fun, laughter, and maybe even a few questionable backhands.</p>
+                            <p>Join us for a smashing start to our wedding celebrations with an epic grass court showdown. Whether you&apos;re a seasoned pro or just here for the vibes, this will be a night of fun, laughter, and maybe even a few questionable backhands.</p>
                         </div>
 
                         {/* Schedule */}
@@ -30,7 +30,7 @@ export default function TennisTournamentSection() {
                             <p className="mb-4">The battle for the Sandstrand Open trophy kicks off! Get ready to serve, volley, and celebrate love with some friendly(ish) competition.</p>
 
                             <h3 className="font-bold mb-2">⏰ 21:00 - Sandstrand Open Closes</h3>
-                            <p>The final point has been played, the champions have been crowned, and now it's time to toast to a fantastic evening!</p>
+                            <p>The final point has been played, the champions have been crowned, and now it&apos;s time to toast to a fantastic evening!</p>
                         </div>
                     </div>
 
@@ -71,7 +71,7 @@ export default function TennisTournamentSection() {
                         {/* Food & Drinks */}
                         <div className="bg-white/10 p-6 rounded-xl mb-6">
                             <h3 className="font-bold mb-2">🍷 Drinks & Food Served Throughout</h3>
-                            <p>Refreshments and delicious bites will be available to keep you fueled for the court and the celebrations. We're all about smörgåstårta and rosé 🥂✨🌸</p>
+                            <p>Refreshments and delicious bites will be available to keep you fueled for the court and the celebrations. We&apos;re all about smörgåstårta and rosé 🥂✨🌸</p>
                         </div>
 
                         {/* Dress Code */}
@@ -85,7 +85,7 @@ export default function TennisTournamentSection() {
                             <h3 className="font-bold mb-2">⭐ Bonus Points for:</h3>
                             <ul className="list-disc list-inside">
                                 <li>Sweatbands & vintage tennis looks</li>
-                                <li>Dramatic "let's gooo!" celebrations</li>
+                                <li>Dramatic "let&apos;s gooo!" celebrations</li>
                                 <li>Gracefully accepting defeat (or pretending it never happened)</li>
                             </ul>
                             <p className="mt-4">Let the games—and the wedding festivities—begin! 🎾✨</p>

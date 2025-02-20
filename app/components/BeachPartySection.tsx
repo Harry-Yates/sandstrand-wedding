@@ -35,7 +35,7 @@ export default function BeachPartySection() {
                         </div>
 
                         <p className="text-center mt-8 text-xl">
-                            Let's soak up the sun & keep the party going! 🎶💛
+                            Let&apos;s soak up the sun & keep the party going! 🎶💛
                         </p>
                     </div>
                 </div>
