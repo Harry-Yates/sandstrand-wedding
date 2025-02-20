@@ -20,7 +20,7 @@ export default function RSVPPage() {
         setFormState('submitting');
 
         try {
-            const { error } = await supabase.from('rsvps').insert([{
+            const { error } = await supabase.from('rsvp').insert([{
                 name: formData.name,
                 email: formData.email,
                 attending: formData.attending === 'yes',
