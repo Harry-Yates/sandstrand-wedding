@@ -43,7 +43,7 @@ export default function Home() {
             {/* Content Column - Pushed to right side with padding */}
             <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
               <h2 className="text-4xl font-bold mb-4">
-                💍 JOHANNA & SEBASTIAN'S WEDDING WEEKEND 💃✨
+                💍 JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND 💃✨
               </h2>
               <p className="text-xl mb-6">
                 June 19-21, 2025 | 📍 Båstad, Sweden
