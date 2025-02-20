@@ -95,8 +95,8 @@ export default function TennisTournamentSection() {
                         <div className="absolute bottom-0 right-0 w-1/2 h-1/2">
                             <div className="relative w-full h-full">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=800"
-                                    alt="Curious cow close-up"
+                                    src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800"
+                                    alt="Tennis net close-up"
                                     className="object-cover"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 25vw"
