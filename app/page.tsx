@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import WeddingOverviewSection from "./components/WeddingOverviewSection";
+import TennisTournamentSection from "./components/TennisTournamentSection";
 
 export default function Home() {
   return (
@@ -52,6 +53,7 @@ export default function Home() {
 
         {/* Wedding Weekend Overview Section */}
         <WeddingOverviewSection />
+        <TennisTournamentSection />
       </main>
     </div>
   );
