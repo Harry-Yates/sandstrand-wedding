@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "./components/Navbar";
 import WeddingOverviewSection from "./components/WeddingOverviewSection";
 import TennisTournamentSection from "./components/TennisTournamentSection";
+import WeddingDaySection from "./components/WeddingDaySection";
 
 export default function Home() {
   return (
@@ -54,6 +55,7 @@ export default function Home() {
         {/* Wedding Weekend Overview Section */}
         <WeddingOverviewSection />
         <TennisTournamentSection />
+        <WeddingDaySection />
       </main>
     </div>
   );
