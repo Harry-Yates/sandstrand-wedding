@@ -31,31 +31,57 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Details Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Wedding Details</h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  <strong>Date:</strong> June 15th, 2024
-                </p>
-                <p>
-                  <strong>Time:</strong> 4:00 PM
-                </p>
-                <p>
-                  <strong>Location:</strong> Sandstrand Beach Resort
-                </p>
-                <p>
-                  <strong>Address:</strong> 123 Ocean View Road, Sandstrand
-                </p>
+        {/* Wedding Weekend Overview Section */}
+        <section className="bg-pink-100 relative text-gray-900">
+          <div className="flex flex-col md:flex-row">
+            {/* Image Column - Full height, aligned to left edge */}
+            <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">
+              <div className="h-[300px] md:h-full w-full relative">
+                <UnsplashImageHolder className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <p className="text-gray-600">
-                Sarah and John met in 2018 during a beach cleanup event. Their shared love for the ocean and commitment to environmental conservation brought them together. After five wonderful years of adventures and growing together, they&apos;re excited to start this new chapter of their lives.
+
+            {/* Content Column - Pushed to right side with padding */}
+            <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
+              <h2 className="text-4xl font-bold mb-4">
+                💍 JOHANNA & SEBASTIAN'S WEDDING WEEKEND 💃✨
+              </h2>
+              <p className="text-xl mb-6">
+                June 19-21, 2025 | 📍 Båstad, Sweden
               </p>
+              <p className="text-lg mb-8">
+                A weekend filled with love, laughter, and celebration—come join us!
+              </p>
+              <ul className="space-y-6">
+                <li className="bg-white/50 p-6 rounded-xl">
+                  <strong className="text-xl block mb-2">🎾 June 19 – Tennis Tournament</strong>
+                  Plantahagens Tennis Courts | ⏰ 17:00-21:00
+                  <br />
+                  Dress Code: Wimbledon Chic (white, green, or pink)
+                  <br />
+                  Featuring smörgåstårta & rosé wine 🍷✨
+                </li>
+                <li className="bg-white/50 p-6 rounded-xl">
+                  <strong className="text-xl block mb-2">💒 June 20 – Wedding & Party</strong>
+                  Hovs Kyrka | ⏰ 14:30 Ceremony
+                  <br />
+                  Buses leave 13:40 (Only from Riviera Strand & Skansen)
+                  <br />
+                  Mingle 16:00-17:30 at GW Swensons Lada
+                  <br />
+                  Dinner party until 02:00
+                  <br />
+                  Dress Code: Colourful dress & suite (NO dark blue!)
+                </li>
+                <li className="bg-white/50 p-6 rounded-xl">
+                  <strong className="text-xl block mb-2">🏖️ June 21 – Beach Party</strong>
+                  Badkrukan | 🍕 Pizza & Drinks ⏰ 13:00 Party starts
+                  <br />
+                  Swim, dance, and celebrate!
+                  <br />
+                  Dress Code: Beach Chic
+                </li>
+              </ul>
             </div>
           </div>
         </section>
