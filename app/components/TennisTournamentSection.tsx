@@ -85,7 +85,7 @@ export default function TennisTournamentSection() {
                             <h3 className="font-bold mb-2">⭐ Bonus Points for:</h3>
                             <ul className="list-disc list-inside">
                                 <li>Sweatbands & vintage tennis looks</li>
-                                <li>Dramatic "let&apos;s gooo!" celebrations</li>
+                                <li>Dramatic &quot;let&apos;s gooo!&quot; celebrations</li>
                                 <li>Gracefully accepting defeat (or pretending it never happened)</li>
                             </ul>
                             <p className="mt-4">Let the games—and the wedding festivities—begin! 🎾✨</p>

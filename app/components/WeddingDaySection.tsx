@@ -63,7 +63,7 @@ export default function WeddingDaySection() {
                         </div>
 
                         <p className="text-center mt-8 text-xl">
-                            We can't wait to celebrate with you! 🥂💃
+                            We can&apos;t wait to celebrate with you! 🥂💃
                         </p>
                     </div>
                 </div>
