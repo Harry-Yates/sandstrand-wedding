@@ -32,9 +32,9 @@ export default function WeddingOverviewSection() {
                             <strong className="text-xl block mb-2 bungee-regular">
                                 🎾 June 19 – Tennis Tournament
                             </strong>
-                            Plantahagens Tennis Courts | ⏰ 17:00-21:00
+                            <strong>Plantahagens Tennis Courts</strong> | ⏰ 17:00-21:00
                             <br />
-                            Dress Code: Wimbledon Chic (white, green, or pink)
+                            <strong>Dress Code:</strong> Wimbledon Chic (white, green, or pink)
                             <br />
                             Featuring smörgåstårta & rosé wine 🍷✨
                         </li>
@@ -42,25 +42,25 @@ export default function WeddingOverviewSection() {
                             <strong className="text-xl block mb-2 bungee-regular">
                                 💒 June 20 – Wedding&nbsp;Party
                             </strong>
-                            Hovs Kyrka | ⏰ 14:30 Ceremony
+                            <strong>Hovs Kyrka</strong> | ⏰ 14:30 Ceremony
                             <br />
-                            Buses leave 13:40 (Only from Riviera Strand &amp; Skansen)
+                            <strong>Buses leave 13:40</strong> (Only from Riviera Strand &amp; Skansen)
                             <br />
-                            Mingle 16:00-17:30 at GW Swensons Lada
+                            <strong>Mingle 16:00-17:30</strong> at GW Swensons Lada
                             <br />
                             Dinner party until 02:00
                             <br />
-                            Dress Code: Colourful dress & suite (NO dark blue!)
+                            <strong>Dress Code:</strong> Colourful dress & suite (NO dark blue!)
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
                                 🏖️ June 21 – Beach Party
                             </strong>
-                            Badkrukan | 🍕 Pizza & Drinks ⏰ 13:00 Party starts
+                            <strong>Badkrukan</strong> | 🍕 Pizza & Drinks ⏰ 13:00 Party starts
                             <br />
                             Swim, dance, and celebrate!
                             <br />
-                            Dress Code: Beach Chic
+                            <strong>Dress Code:</strong> Beach Chic
                         </li>
                     </ul>
                 </div>
