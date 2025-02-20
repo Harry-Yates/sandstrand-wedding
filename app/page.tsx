@@ -5,6 +5,30 @@ import WeddingOverviewSection from "./components/WeddingOverviewSection";
 import TennisTournamentSection from "./components/TennisTournamentSection";
 import WeddingDaySection from "./components/WeddingDaySection";
 import BeachPartySection from "./components/BeachPartySection";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "Johanna & Sebastian's Wedding Weekend",
+  description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025. Tennis tournament, wedding ceremony, and beach party!",
+  openGraph: {
+    title: "Johanna & Sebastian's Wedding Weekend",
+    description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
+    images: [
+      {
+        url: "/assets/images/meta.png",
+        width: 1200,
+        height: 630,
+        alt: "Johanna and Sebastian's Wedding",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Johanna & Sebastian's Wedding Weekend",
+    description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
+    images: ["/assets/images/IMG_1143.jpg"],
+  },
+};
 
 export default function Home() {
   return (
