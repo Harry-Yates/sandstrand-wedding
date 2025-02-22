@@ -40,7 +40,7 @@ export default function AdminPage() {
         }
     }, [isAuthenticated]);
 
-    const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
@@ -52,6 +52,7 @@ export default function AdminPage() {
     };
 
     const fetchResponses = async () => {
+        setLoading(true);
         try {
             const { data, error } = await supabase
                 .from('rsvp')
@@ -65,6 +66,8 @@ export default function AdminPage() {
         } catch (error) {
             console.error('Error fetching responses:', error);
             setError('Failed to fetch responses');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -198,12 +201,11 @@ export default function AdminPage() {
                     </div>
 
                     <div className="relative z-10 max-w-md mx-auto mb-20">
-                        {/* Password Form */}
                         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
                             <h2 className="text-[#ff3e6b] text-3xl font-bungee mb-6 text-center">
                                 Enter Password
                             </h2>
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleLogin}>
                                 <div>
                                     <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
                                         Password
@@ -211,9 +213,14 @@ export default function AdminPage() {
                                     <input
                                         type="password"
                                         id="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
                                         placeholder="Enter password"
                                     />
+                                    {error && (
+                                        <p className="mt-2 text-sm text-red-600">{error}</p>
+                                    )}
                                 </div>
                                 <button
                                     type="submit"
