@@ -125,14 +125,16 @@ export default function FAQPage() {
         : faqItems.filter(item => item.category === selectedCategory);
 
     return (
-        <main className="min-h-screen bg-[#ff3e6b] py-32">
+        <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
             <Navbar />
             <div className="container mx-auto px-4">
-                <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center">
+                <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
                     FAQ
                 </h1>
 
-                <div className="absolute top-40 right-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30">
+                {/* Unique arrangement of decorative elements for FAQ */}
+                {/* Large top-right feature */}
+                <div className="absolute top-20 right-0 w-48 h-48 md:w-72 md:h-72 text-[#ff1744] opacity-15 transform -rotate-12">
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                         <path d="M50 10 
                                 C60 10, 70 20, 70 30
@@ -147,7 +149,87 @@ export default function FAQPage() {
                     </svg>
                 </div>
 
-                <div className="relative z-10 grid gap-8 max-w-4xl mx-auto">
+                {/* Mid-left cluster */}
+                <div className="absolute top-1/3 -left-20 w-36 h-36 md:w-56 md:h-56 text-[#ff1744] opacity-20 transform rotate-45">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                {/* Small floating elements */}
+                <div className="absolute top-1/2 right-1/4 w-20 h-20 md:w-32 md:h-32 text-[#ff1744] opacity-25 transform rotate-90">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                {/* Bottom scattered elements */}
+                <div className="absolute bottom-1/3 left-1/4 w-24 h-24 md:w-40 md:h-40 text-[#ff1744] opacity-30 transform -rotate-30">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                {/* Bottom right element */}
+                <div className="absolute bottom-20 right-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-20 transform rotate-180">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                {/* Small accent elements */}
+                <div className="absolute top-1/4 left-1/3 w-16 h-16 md:w-24 md:h-24 text-[#ff1744] opacity-15 transform -rotate-45">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+
+                <div className="relative z-10 grid gap-8 max-w-4xl mx-auto mb-20">
                     {filteredFAQs.map((faq, index) => (
                         <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                             <h2 className="text-[#ff3e6b] text-2xl font-bungee mb-4">{faq.question}</h2>

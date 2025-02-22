@@ -110,15 +110,16 @@ export default function AdminPage() {
 
     if (!isAuthenticated) {
         return (
-            <main className="min-h-screen bg-[#ff3e6b] pt-32">
+            <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
                 <Navbar />
                 <div className="container mx-auto px-4">
                     <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
                         Portal
                     </h1>
 
-                    {/* Decorative elements */}
-                    <div className="absolute top-40 left-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30 transform -rotate-12">
+                    {/* Rearranged decorative elements to avoid the title */}
+                    {/* Large center-left element - moved down */}
+                    <div className="absolute top-1/2 -left-10 w-40 h-40 md:w-64 md:h-64 text-[#ff1744] opacity-20 transform rotate-12">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
                                     C60 10, 70 20, 70 30
@@ -133,7 +134,8 @@ export default function AdminPage() {
                         </svg>
                     </div>
 
-                    <div className="absolute top-60 right-10 w-24 h-24 md:w-40 md:h-40 text-[#ff1744] opacity-30 transform rotate-45">
+                    {/* Right side element - moved down */}
+                    <div className="absolute top-2/3 right-20 w-28 h-28 md:w-44 md:h-44 text-[#ff1744] opacity-25 transform -rotate-45">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
                                     C60 10, 70 20, 70 30
@@ -148,7 +150,54 @@ export default function AdminPage() {
                         </svg>
                     </div>
 
-                    <div className="relative z-10 max-w-md mx-auto">
+                    {/* Small scattered elements - adjusted positions */}
+                    <div className="absolute top-2/3 right-1/3 w-16 h-16 md:w-24 md:h-24 text-[#ff1744] opacity-30 transform rotate-90">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    {/* Bottom elements */}
+                    <div className="absolute bottom-20 right-10 w-32 h-32 md:w-52 md:h-52 text-[#ff1744] opacity-15 transform rotate-180">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    <div className="absolute bottom-40 left-24 w-20 h-20 md:w-28 md:h-28 text-[#ff1744] opacity-25 transform -rotate-30">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    <div className="relative z-10 max-w-md mx-auto mb-20">
                         {/* Password Form */}
                         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
                             <h2 className="text-[#ff3e6b] text-3xl font-bungee mb-6 text-center">
