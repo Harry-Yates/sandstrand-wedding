@@ -27,11 +27,14 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2 group" onClick={() => setIsMenuOpen(false)}>
-                        <img
-                            src=""
-                            alt="JS Monogram Logo"
-                            className="h-12 w-12 rounded-full object-contain transition-transform duration-500 group-hover:rotate-180 hover:scale-110"
-                        />
+                        <div className="logo-container">
+                            <img
+                                src="/assets/images/IMG_7858.jpg"
+                                alt="Johanna and Sebastian"
+                                className="h-14 w-14 rounded-full object-cover logo-image transition-transform duration-1000 ease-in-out animate-[spin_5s_linear_infinite]"
+                            />
+                            <div className="logo-border"></div>
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
