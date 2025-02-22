@@ -186,11 +186,11 @@ export default function AdminPage() {
             <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
                 <Navbar />
                 <div className="container mx-auto px-4">
-                    <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
+                    <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8 relative z-50">
                         Portal
                     </h1>
                     {/* Decorative SVG elements */}
-                    <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 text-[#ff1744] opacity-15 transform rotate-12">
+                    <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 text-[#ff1744] opacity-15 transform rotate-12 z-10">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
                                     C60 10, 70 20, 70 30

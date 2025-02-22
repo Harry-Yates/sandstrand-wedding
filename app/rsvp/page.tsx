@@ -74,13 +74,13 @@ export default function RSVPPage() {
         <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
             <Navbar />
             <div className="container mx-auto px-4">
-                <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
+                <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8 relative z-50">
                     RSVP
                 </h1>
 
                 {/* Multiple decorative elements scattered across the background */}
                 {/* Top left */}
-                <div className="absolute top-40 left-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30 transform -rotate-12">
+                <div className="absolute top-40 left-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30 transform -rotate-12 z-10">
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                         <path d="M50 10 
                                 C65 10, 75 25, 75 40
