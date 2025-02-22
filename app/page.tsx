@@ -57,11 +57,14 @@ export default function Home() {
             <h2 className="text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
               JOHANNA & SEBASTIAN'S WEDDING WEEKEND
             </h2>
-            <p className="text-xl sm:text-2xl text-center mb-4 font-light">
+            <p className="text-xl sm:text-2xl text-center mb-8 font-light">
               Join us for our celebration
             </p>
-            <p className="text-2xl sm:text-3xl text-center mb-16">
-              June 20th - 22nd 2024
+            <p className="text-2xl sm:text-3xl text-center font-medium mb-8">
+              June 19-21, 2025
+            </p>
+            <p className="text-xl sm:text-2xl text-center mb-16">
+              Båstad, Sweden
             </p>
             <div className="mt-16">
               <SparkleButton />
