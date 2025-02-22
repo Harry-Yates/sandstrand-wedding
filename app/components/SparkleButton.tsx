@@ -42,8 +42,8 @@ const SparkleButton = () => {
                     relative overflow-hidden
                     inline-flex items-center justify-center
                     px-8 py-4 rounded-full
-                    bg-[#ff3e6b] text-[#ffe234]
-                    hover:bg-[#ff3e6b]/90
+                    bg-[#f43f5e] text-white
+                    hover:bg-[#f43f5e]/90
                     transition-all duration-300
                     font-bungee text-lg sm:text-xl
                     transform hover:scale-105
@@ -54,7 +54,7 @@ const SparkleButton = () => {
                 "
             >
                 <span className="spark absolute inset-0 pointer-events-none" />
-                <span className="backdrop absolute inset-[0.1em] rounded-full bg-[#ae1231] pointer-events-none" />
+                <span className="backdrop absolute inset-[0.1em] rounded-full bg-[#e11d48] pointer-events-none" />
                 <span className="relative z-10">RSVP Now</span>
             </Link>
 
