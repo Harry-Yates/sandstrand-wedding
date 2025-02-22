@@ -35,7 +35,6 @@ export default function RSVPPage() {
         try {
             // Explicitly convert guests to number and handle undefined/null
             let guestsCount = 0;
-
             if (formData.attending === 'yes') {
                 const parsedGuests = Number(formData.guests);
                 guestsCount = isNaN(parsedGuests) ? 0 : Math.max(0, parsedGuests);
@@ -195,7 +194,7 @@ export default function RSVPPage() {
                 </div>
 
                 <div className="relative z-10 max-w-2xl mx-auto mb-20">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
+                    <div className="bg-white/95 backdrop-blur-md rounded-xl p-10 shadow-2xl">
                         {formState === 'success' ? (
                             <div className="text-center">
                                 <h3 className="text-[#ff3e6b] text-2xl font-bungee mb-4">Thank you!</h3>
@@ -206,15 +205,14 @@ export default function RSVPPage() {
                                 <div className="space-y-6">
                                     {/* Name Input */}
                                     <div>
-                                        <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                                        <label htmlFor="name" className="block text-gray-800 font-medium mb-2">
                                             Name <span className="text-[#ff3e6b]">*</span>
                                         </label>
                                         <input
                                             type="text"
                                             id="name"
                                             required
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                     focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                            className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             placeholder="Enter your full name"
@@ -223,15 +221,14 @@ export default function RSVPPage() {
 
                                     {/* Email Input */}
                                     <div>
-                                        <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                                        <label htmlFor="email" className="block text-gray-800 font-medium mb-2">
                                             Email <span className="text-[#ff3e6b]">*</span>
                                         </label>
                                         <input
                                             type="email"
                                             id="email"
                                             required
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                     focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                            className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             placeholder="your.email@example.com"
@@ -240,7 +237,7 @@ export default function RSVPPage() {
 
                                     {/* Attending Radio Buttons */}
                                     <div>
-                                        <label className="block text-gray-700 font-medium mb-2">
+                                        <label className="block text-gray-800 font-medium mb-2">
                                             Will you be attending? <span className="text-[#ff3e6b]">*</span>
                                         </label>
                                         <div className="mt-2 space-x-6">
@@ -250,9 +247,9 @@ export default function RSVPPage() {
                                                     value="yes"
                                                     checked={formData.attending === 'yes'}
                                                     onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
-                                                    className="form-radio h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                    className="form-radio h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                 />
-                                                <span className="ml-2 text-gray-700">Yes</span>
+                                                <span className="ml-2 text-gray-800">Yes</span>
                                             </label>
                                             <label className="inline-flex items-center cursor-pointer">
                                                 <input
@@ -260,9 +257,9 @@ export default function RSVPPage() {
                                                     value="no"
                                                     checked={formData.attending === 'no'}
                                                     onChange={(e) => setFormData({ ...formData, attending: e.target.value })}
-                                                    className="form-radio h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                    className="form-radio h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                 />
-                                                <span className="ml-2 text-gray-700">No</span>
+                                                <span className="ml-2 text-gray-800">No</span>
                                             </label>
                                         </div>
                                     </div>
@@ -271,14 +268,13 @@ export default function RSVPPage() {
                                         <>
                                             {/* Meal Preference Select */}
                                             <div>
-                                                <label htmlFor="meal" className="block text-gray-700 font-medium mb-2">
+                                                <label htmlFor="meal" className="block text-gray-800 font-medium mb-2">
                                                     Meal Preference <span className="text-[#ff3e6b]">*</span>
                                                 </label>
                                                 <select
                                                     id="meal"
-                                                    required={formData.attending === 'yes'}
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                             focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                                    required
+                                                    className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                                     value={formData.meal_preference}
                                                     onChange={(e) => setFormData({ ...formData, meal_preference: e.target.value })}
                                                 >
@@ -292,13 +288,12 @@ export default function RSVPPage() {
 
                                             {/* Bus Pickup Location Select */}
                                             <div>
-                                                <label htmlFor="bus" className="block text-gray-700 font-medium mb-2">
+                                                <label htmlFor="bus" className="block text-gray-800 font-medium mb-2">
                                                     Bus Pickup Location
                                                 </label>
                                                 <select
                                                     id="bus"
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                             focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                                    className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                                     value={formData.bus_pickup_location}
                                                     onChange={(e) => setFormData({ ...formData, bus_pickup_location: e.target.value })}
                                                 >
@@ -310,13 +305,12 @@ export default function RSVPPage() {
 
                                             {/* Tennis Level Select */}
                                             <div>
-                                                <label htmlFor="tennis" className="block text-gray-700 font-medium mb-2">
+                                                <label htmlFor="tennis" className="block text-gray-800 font-medium mb-2">
                                                     Tennis Level 🎾
                                                 </label>
                                                 <select
                                                     id="tennis"
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                             focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                                    className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                                     value={formData.tennis_level}
                                                     onChange={(e) => setFormData({ ...formData, tennis_level: e.target.value })}
                                                 >
@@ -330,7 +324,7 @@ export default function RSVPPage() {
 
                                             {/* Attending Days Checkboxes */}
                                             <div>
-                                                <label className="block text-gray-700 font-medium mb-2">
+                                                <label className="block text-gray-800 font-medium mb-2">
                                                     Which days will you be joining us? 🎉
                                                 </label>
                                                 <div className="space-y-2">
@@ -347,9 +341,9 @@ export default function RSVPPage() {
                                                                     beach_day: e.target.checked
                                                                 }
                                                             })}
-                                                            className="form-checkbox h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                            className="form-checkbox h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                         />
-                                                        <span className="ml-2 text-gray-700">All three days – Tennis, Wedding, & Beach Party! 🎾💍🏖️</span>
+                                                        <span className="ml-2 text-gray-800">All three days – Tennis, Wedding, & Beach Party! 🎾💍🏖️</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <input
@@ -363,9 +357,9 @@ export default function RSVPPage() {
                                                                     all_days: false
                                                                 }
                                                             })}
-                                                            className="form-checkbox h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                            className="form-checkbox h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                         />
-                                                        <span className="ml-2 text-gray-700">June 19th – Tennis Tournament 🎾</span>
+                                                        <span className="ml-2 text-gray-800">June 19th – Tennis Tournament 🎾</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <input
@@ -379,9 +373,9 @@ export default function RSVPPage() {
                                                                     all_days: false
                                                                 }
                                                             })}
-                                                            className="form-checkbox h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                            className="form-checkbox h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                         />
-                                                        <span className="ml-2 text-gray-700">June 20th – Wedding & Celebration 💒</span>
+                                                        <span className="ml-2 text-gray-800">June 20th – Wedding & Celebration 💒</span>
                                                     </label>
                                                     <label className="flex items-center">
                                                         <input
@@ -395,23 +389,22 @@ export default function RSVPPage() {
                                                                     all_days: false
                                                                 }
                                                             })}
-                                                            className="form-checkbox h-4 w-4 text-[#ff3e6b] border-gray-300 focus:ring-[#ff3e6b]"
+                                                            className="form-checkbox h-4 w-4 text-pink-500 border-gray-300 focus:ring-pink-500"
                                                         />
-                                                        <span className="ml-2 text-gray-700">June 21st – Beach Party 🌊🍕</span>
+                                                        <span className="ml-2 text-gray-800">June 21st – Beach Party 🌊🍕</span>
                                                     </label>
                                                 </div>
                                             </div>
 
                                             {/* Additional Notes Textarea */}
                                             <div>
-                                                <label htmlFor="additional_notes" className="block text-gray-700 font-medium mb-2">
+                                                <label htmlFor="additional_notes" className="block text-gray-800 font-medium mb-2">
                                                     Anything we need to know? 📝
                                                 </label>
                                                 <textarea
                                                     id="additional_notes"
                                                     rows={4}
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                             focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                                    className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
                                                     value={formData.additional_notes}
                                                     onChange={(e) => setFormData({ ...formData, additional_notes: e.target.value })}
                                                     placeholder="Any dietary restrictions, accessibility requirements, or other things we should know about?"
@@ -426,10 +419,10 @@ export default function RSVPPage() {
                                         type="submit"
                                         disabled={formState === 'submitting'}
                                         className="inline-flex justify-center py-3 px-8 rounded-lg font-bungee
-                                                 bg-[#ff3e6b] text-[#ffe234] hover:bg-[#ff1744] 
+                                                 bg-[#ff3e6b] text-white hover:bg-[#ff1744] 
                                                  transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        {formState === 'submitting' ? 'Submitting...' : 'Submit RSVP'}
+                                        {formState === 'submitting' ? 'Submitting...' : 'Submit'}
                                     </button>
                                 </div>
                             </form>

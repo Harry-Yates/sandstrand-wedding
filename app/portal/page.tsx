@@ -301,13 +301,14 @@ export default function AdminPage() {
                                         <p className="mt-2 text-sm text-red-600">{error}</p>
                                     )}
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="w-full bg-[#ff3e6b] text-[#ffe234] py-3 px-6 rounded-lg font-bungee 
-                                             hover:bg-[#ff1744] transition-colors duration-200"
-                                >
-                                    Enter
-                                </button>
+                                <div className="flex justify-center">
+                                    <button
+                                        type="submit"
+                                        className="inline-flex justify-center py-3 px-8 rounded-lg font-bungee bg-[#ff3e6b] text-white hover:bg-[#ff1744] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        Enter
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
