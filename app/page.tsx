@@ -6,6 +6,7 @@ import TennisTournamentSection from "./components/TennisTournamentSection";
 import WeddingDaySection from "./components/WeddingDaySection";
 import BeachPartySection from "./components/BeachPartySection";
 import { Metadata } from "next/types";
+import SparkleButton from "./components/SparkleButton";
 
 export const metadata: Metadata = {
   title: "Johanna & Sebastian's Wedding Weekend",
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="relative z-10 text-center text-white max-w-2xl px-4">
             {/* Responsive heading - smaller on mobile, larger on desktop */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl bungee-regular mb-4 leading-tight tracking-wide">
-              💍 JOHANNA &amp; SEBASTIAN&apos;S WEDDING&nbsp;WEEKEND 💃✨
+              JOHANNA &amp; SEBASTIAN&apos;S WEDDING&nbsp;WEEKEND
             </h2>
 
             {/* Changed from Sigmar to Bungee */}
@@ -67,13 +68,8 @@ export default function Home() {
               A weekend filled with love, laughter, and&nbsp;celebration—come&nbsp;join&nbsp;us!
             </p>
 
-            {/* RSVP button with responsive padding and text size */}
-            <Link
-              href="/rsvp"
-              className="inline-block bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full bungee-regular hover:bg-gray-100 transition-colors text-base sm:text-lg"
-            >
-              RSVP Now
-            </Link>
+            {/* Replace the existing RSVP Link with SparkleButton */}
+            <SparkleButton />
           </div>
         </section>
 

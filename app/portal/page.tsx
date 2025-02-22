@@ -40,19 +40,14 @@ export default function AdminPage() {
         }
     }, [isAuthenticated]);
 
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        setLoading(true);
-        try {
-            if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
-                setIsAuthenticated(true);
-            } else {
-                setError('Incorrect password. Please try again.');
-            }
-        } catch {
-            setError('An error occurred. Please try again.');
-        } finally {
-            setLoading(false);
+
+        if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+            setIsAuthenticated(true);
+            setError('');
+        } else {
+            setError('Invalid password');
         }
     };
 
@@ -120,13 +115,13 @@ export default function AdminPage() {
                 <Section className="bg-[#c7436c]">
                     <Container>
                         <div className="max-w-md mx-auto mt-20">
-                            <Title variant="light" className="mb-8 text-[#e0ab2a]">Admin Login</Title>
+                            <Title variant="light" className="mb-8 text-[#e0ab2a]">Portal</Title>
                             <div className="bg-[#352129] p-8 rounded-lg shadow-lg">
                                 <input
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="Enter password"
+                                    placeholder="If you know, you know ..."
                                     className="w-full p-3 mb-4 rounded border border-[#e0ab2a]/20 bg-[#ae1231]/10 text-[#e0ab2a] placeholder-[#e0ab2a]/70"
                                 />
                                 <button

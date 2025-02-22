@@ -24,126 +24,75 @@ export default function Navbar() {
 
     const linkClass = `text-xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`
     const rsvpClass = "text-xl font-medium px-4 py-2 rounded-full bg-[#ae1231] text-[#e0ab2a] hover:bg-[#352129] transition-colors font-bungee"
-    const adminClass = linkClass
+    const portalClass = linkClass
 
     return (
-        <>
-            <nav className={`fixed w-full z-50 transition-all duration-300 ${navBackground}`}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
-                        {/* Logo */}
-                        <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
-                            <img
-                                src="https://img.freepik.com/premium-vector/monogram-logo-with-initials-js-wedding-logo-design-custom-wreath-wedding-monogram-crest-initial-wedding-logo_553860-762.jpg"
-                                alt="JS Monogram Logo"
-                                className="h-12 w-12 rounded-full object-contain"
-                            />
+        <nav className={`fixed w-full top-0 z-50 transition-all ${navBackground} ${isScrolled ? 'shadow-lg' : ''
+            }`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-16">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+                        <img
+                            src="https://img.freepik.com/premium-vector/monogram-logo-with-initials-js-wedding-logo-design-custom-wreath-wedding-monogram-crest-initial-wedding-logo_553860-762.jpg"
+                            alt="JS Monogram Logo"
+                            className="h-12 w-12 rounded-full object-contain"
+                        />
+                    </Link>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        <Link href="/" className={linkClass}>
+                            Home
                         </Link>
+                        <Link href="/faq" className={linkClass}>
+                            FAQ
+                        </Link>
+                        <Link href="/portal" className={portalClass}>
+                            Portal
+                        </Link>
+                        <Link href="/rsvp" className={rsvpClass}>
+                            RSVP
+                        </Link>
+                        {/* <ThemeToggle /> */}
+                    </div>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden md:flex md:items-center md:space-x-8">
-                            <Link href="/" className={linkClass}>
-                                Home
-                            </Link>
-                            <Link href="/faq" className={linkClass}>
-                                FAQ
-                            </Link>
-                            <Link href="/admin" className={adminClass}>
-                                Admin
-                            </Link>
-                            <Link href="/rsvp" className={rsvpClass}>
-                                RSVP
-                            </Link>
-                            {/* <ThemeToggle /> */}
-                        </div>
-
-                        {/* Mobile Menu Button */}
+                    {/* Mobile menu button */}
+                    <div className="md:hidden">
                         <button
-                            className={`md:hidden p-2 rounded-md focus:outline-none ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="text-[#e0ab2a] hover:text-[#ae1231] focus:outline-none"
                         >
                             {isMenuOpen ? (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
-                                    className="h-6 w-6"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                // Close icon
+                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             ) : (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
-                                    className="h-6 w-6"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                // Menu icon
+                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             )}
                         </button>
                     </div>
-                </div>
-            </nav>
 
-            {/* Mobile Navigation Overlay */}
-            {isMenuOpen && (
-                <div
-                    className="fixed inset-0 z-[100] bg-[#c7436c] flex flex-col"
-                >
-                    <div className="flex justify-end p-4">
-                        <button
-                            onClick={() => setIsMenuOpen(false)}
-                            className={`p-2 rounded-md focus:outline-none ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="h-6 w-6"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div className="flex-grow flex flex-col items-center justify-center space-y-6">
-                        <Link
-                            href="/"
-                            onClick={() => setIsMenuOpen(false)}
-                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            href="/faq"
-                            onClick={() => setIsMenuOpen(false)}
-                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
-                        >
-                            FAQ
-                        </Link>
-                        <Link
-                            href="/admin"
-                            onClick={() => setIsMenuOpen(false)}
-                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
-                        >
-                            Admin
-                        </Link>
-                        <Link
-                            href="/rsvp"
-                            onClick={() => setIsMenuOpen(false)}
-                            className="text-3xl font-medium py-3 px-4 bg-[#ae1231] text-[#e0ab2a] rounded-full transition-colors hover:bg-[#352129] font-bungee"
-                        >
-                            RSVP
-                        </Link>
-                    </div>
+                    {/* Mobile Navigation */}
+                    {isMenuOpen && (
+                        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#c7436c] p-4">
+                            <div className="flex flex-col space-y-4">
+                                <Link
+                                    href="/portal"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
+                                >
+                                    Portal
+                                </Link>
+                            </div>
+                        </div>
+                    )}
                 </div>
-            )}
-        </>
+            </div>
+        </nav>
     );
 } 
