@@ -419,7 +419,7 @@ export default function RSVPPage() {
                                     )}
                                 </div>
 
-                                <div className="flex justify-end pt-4">
+                                <div className="flex justify-center pt-4">
                                     <button
                                         type="submit"
                                         disabled={formState === 'submitting'}
