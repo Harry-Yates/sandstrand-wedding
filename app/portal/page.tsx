@@ -26,6 +26,7 @@ interface RSVPResponse {
 }
 
 export default function AdminPage() {
+    // Authentication and data states
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -33,7 +34,13 @@ export default function AdminPage() {
     const [loading, setLoading] = useState(false);
     const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
 
-    // Add useEffect to fetch responses when authenticated
+    // New state for filtering and sorting
+    const [filterQuery, setFilterQuery] = useState('');
+    const [filterTennisLevel, setFilterTennisLevel] = useState('All');
+    const [sortField, setSortField] = useState('');
+    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+
+    // Fetch responses when authenticated
     useEffect(() => {
         if (isAuthenticated) {
             fetchResponses();
@@ -61,7 +68,7 @@ export default function AdminPage() {
 
             if (error) throw error;
 
-            console.log('Fetched responses:', data); // Debug log
+            console.log('Fetched responses:', data);
             setResponses(data || []);
         } catch (error) {
             console.error('Error fetching responses:', error);
@@ -71,8 +78,7 @@ export default function AdminPage() {
         }
     };
 
-    // Updated totalAttending calculation:
-    // Each response with attending: true counts as 1 regardless of guest count.
+    // Updated totalAttending calculation
     const totalAttending = responses.filter(response => response.attending).length;
 
     const handleDelete = async (id: string) => {
@@ -84,14 +90,13 @@ export default function AdminPage() {
         setError('');
 
         try {
-            // Log the attempt
             console.log('Attempting to delete RSVP with ID:', id);
 
             const { data, error: deleteError } = await supabase
                 .from('rsvp')
                 .delete()
                 .eq('id', id)
-                .select(); // Add select to get the deleted row
+                .select();
 
             if (deleteError) {
                 console.error('Delete error:', deleteError);
@@ -101,8 +106,9 @@ export default function AdminPage() {
             console.log('Delete response:', data);
 
             // Update the local state to remove the deleted response
-            setResponses(prevResponses => prevResponses.filter(response => response.id !== id));
-
+            setResponses(prevResponses =>
+                prevResponses.filter(response => response.id !== id)
+            );
         } catch (err) {
             console.error('Error deleting response:', err);
             setError('Failed to delete response. Please try again.');
@@ -111,6 +117,66 @@ export default function AdminPage() {
         }
     };
 
+    // Handler for sorting when clicking on table headers
+    const handleSort = (field: string) => {
+        if (sortField === field) {
+            setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortField(field);
+            setSortDirection('asc');
+        }
+    };
+
+    // Compute unique tennis levels from responses
+    const uniqueTennisLevels = Array.from(
+        new Set(responses.map(response => response.tennis_level).filter(Boolean))
+    );
+
+    // Aggregate tennis level counts for dashboard stats
+    const tennisCounts = responses.reduce((acc, response) => {
+        if (response.tennis_level) {
+            acc[response.tennis_level] = (acc[response.tennis_level] || 0) + 1;
+        }
+        return acc;
+    }, {} as Record<string, number>);
+
+    // Filter responses based on search query and tennis level filter
+    const filteredResponses = responses.filter(response => {
+        const queryMatch =
+            filterQuery === '' ||
+            response.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+            response.email.toLowerCase().includes(filterQuery.toLowerCase());
+        const tennisMatch =
+            filterTennisLevel === 'All' ||
+            response.tennis_level === filterTennisLevel;
+        return queryMatch && tennisMatch;
+    });
+
+    // Sort the filtered responses based on the selected sort field and direction
+    const sortedResponses = [...filteredResponses];
+    if (sortField) {
+        sortedResponses.sort((a, b) => {
+            switch (sortField) {
+                case 'name':
+                    return a.name.localeCompare(b.name);
+                case 'email':
+                    return a.email.localeCompare(b.email);
+                case 'guests':
+                    return a.guests - b.guests;
+                case 'tennis_level':
+                    return (a.tennis_level || '').localeCompare(b.tennis_level || '');
+                case 'created_at':
+                    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+                default:
+                    return 0;
+            }
+        });
+        if (sortDirection === 'desc') {
+            sortedResponses.reverse();
+        }
+    }
+
+    // If not authenticated, render the login page
     if (!isAuthenticated) {
         return (
             <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
@@ -119,8 +185,7 @@ export default function AdminPage() {
                     <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
                         Portal
                     </h1>
-
-                    {/* Added top-right decorative element */}
+                    {/* Decorative SVG elements */}
                     <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 text-[#ff1744] opacity-15 transform rotate-12">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -135,15 +200,11 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
-                    {/* Added top-left decorative element */}
                     <div className="absolute top-24 left-0 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-20">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <circle cx="50" cy="50" r="40" fill="currentColor" />
                         </svg>
                     </div>
-
-                    {/* Large center-left element - moved down */}
                     <div className="absolute top-1/2 -left-10 w-40 h-40 md:w-64 md:h-64 text-[#ff1744] opacity-20 transform rotate-12">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -158,8 +219,6 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
-                    {/* Right side element - moved down */}
                     <div className="absolute top-2/3 right-20 w-28 h-28 md:w-44 md:h-44 text-[#ff1744] opacity-25 transform -rotate-45">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -174,8 +233,6 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
-                    {/* Small scattered elements - adjusted positions */}
                     <div className="absolute top-2/3 right-1/3 w-16 h-16 md:w-24 md:h-24 text-[#ff1744] opacity-30 transform rotate-90">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -190,8 +247,6 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
-                    {/* Bottom elements */}
                     <div className="absolute bottom-20 right-10 w-32 h-32 md:w-52 md:h-52 text-[#ff1744] opacity-15 transform rotate-180">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -206,7 +261,6 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
                     <div className="absolute bottom-40 left-24 w-20 h-20 md:w-28 md:h-28 text-[#ff1744] opacity-25 transform -rotate-30">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M50 10 
@@ -221,7 +275,6 @@ export default function AdminPage() {
                                 fill="currentColor" />
                         </svg>
                     </div>
-
                     <div className="relative z-10 max-w-md mx-auto mb-20">
                         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
                             <h2 className="text-[#ff3e6b] text-3xl font-bungee mb-6 text-center">
@@ -274,8 +327,8 @@ export default function AdminPage() {
                         </button>
                     </div>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    {/* Dashboard Stats */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                         <div className="bg-background-secondary p-6 rounded-lg">
                             <h3 className="text-text-secondary text-sm font-medium">Total Responses</h3>
                             <p className="text-text-primary text-2xl font-bold mt-2">{responses.length}</p>
@@ -287,11 +340,45 @@ export default function AdminPage() {
                         <div className="bg-background-secondary p-6 rounded-lg">
                             <h3 className="text-text-secondary text-sm font-medium">Response Rate</h3>
                             <p className="text-text-primary text-2xl font-bold mt-2">
-                                {responses.length > 0 ?
-                                    `${Math.round((responses.filter(r => r.attending).length / responses.length) * 100)}%`
-                                    : '0%'}
+                                {responses.length > 0
+                                    ? `${Math.round((responses.filter(r => r.attending).length / responses.length) * 100)}%`
+                                    : '0%'
+                                }
                             </p>
                         </div>
+                        <div className="bg-background-secondary p-6 rounded-lg">
+                            <h3 className="text-text-secondary text-sm font-medium">Tennis Level Breakdown</h3>
+                            <ul className="mt-2">
+                                {Object.entries(tennisCounts).map(([level, count]) => (
+                                    <li key={level} className="text-text-primary text-lg">
+                                        {level}: {count}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Filter Options */}
+                    <div className="flex flex-wrap gap-4 mb-4">
+                        <input
+                            type="text"
+                            value={filterQuery}
+                            onChange={(e) => setFilterQuery(e.target.value)}
+                            placeholder="Search by name or email"
+                            className="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                        />
+                        <select
+                            value={filterTennisLevel}
+                            onChange={(e) => setFilterTennisLevel(e.target.value)}
+                            className="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                        >
+                            <option value="All">All Tennis Levels</option>
+                            {uniqueTennisLevels.map(level => (
+                                <option key={level} value={level}>
+                                    {level}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     {/* Loading State */}
@@ -315,21 +402,58 @@ export default function AdminPage() {
                                 <table className="min-w-full divide-y divide-border">
                                     <thead className="bg-background-tertiary">
                                         <tr>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Name</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Email</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Status</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Guests</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Meal</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Bus Pickup</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Tennis</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Days</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Notes</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Date</th>
-                                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Actions</th>
+                                            <th
+                                                onClick={() => handleSort('name')}
+                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                            >
+                                                Name{sortField === 'name' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            </th>
+                                            <th
+                                                onClick={() => handleSort('email')}
+                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                            >
+                                                Email{sortField === 'email' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th
+                                                onClick={() => handleSort('guests')}
+                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                            >
+                                                Guests{sortField === 'guests' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Meal
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Bus Pickup
+                                            </th>
+                                            <th
+                                                onClick={() => handleSort('tennis_level')}
+                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                            >
+                                                Tennis{sortField === 'tennis_level' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Days
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Notes
+                                            </th>
+                                            <th
+                                                onClick={() => handleSort('created_at')}
+                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                            >
+                                                Date{sortField === 'created_at' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-background divide-y divide-border">
-                                        {responses.map((response) => (
+                                        {sortedResponses.map((response) => (
                                             <tr key={response.id} className="hover:bg-background-tertiary">
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.name}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.email}</td>
@@ -364,10 +488,7 @@ export default function AdminPage() {
                                                     <button
                                                         onClick={() => handleDelete(response.id)}
                                                         disabled={deleteLoading === response.id}
-                                                        className="text-status-error hover:text-status-error/80 transition-colors
-                                                                 disabled:opacity-50 disabled:cursor-not-allowed
-                                                                 focus:outline-none focus:ring-2 focus:ring-status-error focus:ring-offset-2
-                                                                 rounded-md px-2 py-1"
+                                                        className="text-status-error hover:text-status-error/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-status-error focus:ring-offset-2 rounded-md px-2 py-1"
                                                         title="Delete RSVP"
                                                     >
                                                         {deleteLoading === response.id ? (
