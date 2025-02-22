@@ -38,17 +38,16 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center bg-gray-100">
+        <section className="relative min-h-[100dvh] flex items-center justify-center">
           <div className="absolute inset-0">
+            {/* <UnsplashImageHolder /> */}
             <Image
               src="/assets/images/IMG_1143.jpg"
               alt="Wedding background"
               fill
               priority
-              className="object-cover transition-opacity duration-300"
-              sizes="100vw"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // You'll need to generate this
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-black/30" />
           </div>
