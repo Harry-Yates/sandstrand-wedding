@@ -71,9 +71,9 @@ export default function AdminPage() {
         }
     };
 
-    const totalAttending = responses.reduce((sum, response) => {
-        return sum + (response.attending ? 1 + response.guests : 0);
-    }, 0);
+    // Updated totalAttending calculation:
+    // Each response with attending: true counts as 1 regardless of guest count.
+    const totalAttending = responses.filter(response => response.attending).length;
 
     const handleDelete = async (id: string) => {
         if (!window.confirm('Are you sure you want to delete this RSVP?')) {

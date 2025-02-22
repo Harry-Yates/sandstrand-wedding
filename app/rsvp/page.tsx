@@ -27,20 +27,42 @@ export default function RSVPPage() {
         e.preventDefault();
         setFormState('submitting');
 
+        // Immediate logging before any processing
+        console.log('Raw form data:', formData);
+        console.log('Attending value:', formData.attending);
+        console.log('Raw guests value:', formData.guests);
+
         try {
-            const { error } = await supabase.from('rsvp').insert([{
+            // Explicitly convert guests to number and handle undefined/null
+            let guestsCount = 0;
+
+            if (formData.attending === 'yes') {
+                const parsedGuests = Number(formData.guests);
+                guestsCount = isNaN(parsedGuests) ? 0 : Math.max(0, parsedGuests);
+            }
+
+            console.log('Final guests count:', guestsCount);
+
+            const submitData = {
                 name: formData.name,
                 email: formData.email,
                 attending: formData.attending === 'yes',
-                guests: parseInt(formData.guests),
-                meal_preference: formData.meal_preference,
-                bus_pickup_location: formData.bus_pickup_location,
-                tennis_level: formData.tennis_level,
-                attending_days: formData.attending_days,
-                additional_notes: formData.additional_notes,
-            }]);
+                meal_preference: formData.meal_preference || null,
+                bus_pickup_location: formData.bus_pickup_location || null,
+                tennis_level: formData.tennis_level || null,
+                attending_days: formData.attending_days || null,
+                additional_notes: formData.additional_notes || null,
+            };
 
-            if (error) throw error;
+            console.log('Final submit data:', submitData);
+
+            const { error, data } = await supabase.from('rsvp').insert([submitData]).select();
+            console.log('Supabase response:', { error, data });
+
+            if (error) {
+                console.error('Submission error:', error);
+                throw new Error('Failed to submit RSVP. Please try again.');
+            }
             setFormState('success');
         } catch (error) {
             console.error('Error:', error);
@@ -247,26 +269,6 @@ export default function RSVPPage() {
 
                                     {formData.attending === 'yes' && (
                                         <>
-                                            {/* Additional Guests Select */}
-                                            <div>
-                                                <label htmlFor="guests" className="block text-gray-700 font-medium mb-2">
-                                                    Number of Additional Guests
-                                                </label>
-                                                <select
-                                                    id="guests"
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 
-                                                             focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
-                                                    value={formData.guests}
-                                                    onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                                                >
-                                                    {[0, 1, 2, 3, 4].map((num) => (
-                                                        <option key={num} value={num}>
-                                                            {num} {num === 1 ? 'guest' : 'guests'}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-
                                             {/* Meal Preference Select */}
                                             <div>
                                                 <label htmlFor="meal" className="block text-gray-700 font-medium mb-2">
