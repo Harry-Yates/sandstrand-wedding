@@ -120,7 +120,29 @@ export default function AdminPage() {
                         Portal
                     </h1>
 
-                    {/* Rearranged decorative elements to avoid the title */}
+                    {/* Added top-right decorative element */}
+                    <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 text-[#ff1744] opacity-15 transform rotate-12">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    {/* Added top-left decorative element */}
+                    <div className="absolute top-24 left-0 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-20">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <circle cx="50" cy="50" r="40" fill="currentColor" />
+                        </svg>
+                    </div>
+
                     {/* Large center-left element - moved down */}
                     <div className="absolute top-1/2 -left-10 w-40 h-40 md:w-64 md:h-64 text-[#ff1744] opacity-20 transform rotate-12">
                         <svg viewBox="0 0 100 100" className="w-full h-full">
