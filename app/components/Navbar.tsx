@@ -22,7 +22,7 @@ export default function Navbar() {
     const rsvpClass = `text-xl font-medium px-4 py-2 rounded-full bg-[#ffe234] text-[#ff3e6b] hover:bg-white transition-colors font-bungee`
 
     return (
-        <nav className={`fixed w-full top-0 z-[100] transition-all ${navBackground} ${isScrolled ? 'shadow-lg' : ''}`}>
+        <nav className={`fixed w-full top-0 z-[100] transition-all ${navBackground} ${isScrolled ? 'shadow-lg' : ''} rsvp-form`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
