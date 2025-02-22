@@ -110,32 +110,74 @@ export default function AdminPage() {
 
     if (!isAuthenticated) {
         return (
-            <>
+            <main className="min-h-screen bg-[#ff3e6b] pt-32">
                 <Navbar />
-                <Section className="bg-[#c7436c]">
-                    <Container>
-                        <div className="max-w-md mx-auto mt-20">
-                            <Title variant="light" className="mb-8 text-[#e0ab2a]">Portal</Title>
-                            <div className="bg-[#352129] p-8 rounded-lg shadow-lg">
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="If you know, you know ..."
-                                    className="w-full p-3 mb-4 rounded border border-[#e0ab2a]/20 bg-[#ae1231]/10 text-[#e0ab2a] placeholder-[#e0ab2a]/70"
-                                />
+                <div className="container mx-auto px-4">
+                    <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
+                        Portal
+                    </h1>
+
+                    {/* Decorative elements */}
+                    <div className="absolute top-40 left-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30 transform -rotate-12">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    <div className="absolute top-60 right-10 w-24 h-24 md:w-40 md:h-40 text-[#ff1744] opacity-30 transform rotate-45">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                            <path d="M50 10 
+                                    C60 10, 70 20, 70 30
+                                    C70 40, 90 40, 90 50
+                                    C90 60, 70 60, 70 70
+                                    C70 80, 60 90, 50 90
+                                    C40 90, 30 80, 30 70
+                                    C30 60, 10 60, 10 50
+                                    C10 40, 30 40, 30 30
+                                    C30 20, 40 10, 50 10Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+
+                    <div className="relative z-10 max-w-md mx-auto">
+                        {/* Password Form */}
+                        <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
+                            <h2 className="text-[#ff3e6b] text-3xl font-bungee mb-6 text-center">
+                                Enter Password
+                            </h2>
+                            <form className="space-y-6">
+                                <div>
+                                    <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+                                        Password
+                                    </label>
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff3e6b] focus:border-transparent"
+                                        placeholder="Enter password"
+                                    />
+                                </div>
                                 <button
-                                    onClick={handleLogin}
-                                    className="w-full bg-[#ae1231] text-[#e0ab2a] font-bold py-3 px-4 rounded hover:bg-[#ae1231]/90 transition-colors"
+                                    type="submit"
+                                    className="w-full bg-[#ff3e6b] text-[#ffe234] py-3 px-6 rounded-lg font-bungee 
+                                             hover:bg-[#ff1744] transition-colors duration-200"
                                 >
-                                    Login
+                                    Enter
                                 </button>
-                                {error && <p className="mt-4 text-[#ae1231] text-center">{error}</p>}
-                            </div>
+                            </form>
                         </div>
-                    </Container>
-                </Section>
-            </>
+                    </div>
+                </div>
+            </main>
         );
     }
 

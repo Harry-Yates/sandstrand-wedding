@@ -125,64 +125,39 @@ export default function FAQPage() {
         : faqItems.filter(item => item.category === selectedCategory);
 
     return (
-        <>
+        <main className="min-h-screen bg-[#ff3e6b] py-32">
             <Navbar />
-            <Section className="bg-gradient-to-b from-[#ede457] to-[#ede457]/80">
-                <Container>
-                    <Title className="text-[#cd0b5c]">Frequently Asked Questions</Title>
+            <div className="container mx-auto px-4">
+                <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center">
+                    FAQ
+                </h1>
 
-                    {/* Category Filter */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-8 mt-4">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setSelectedCategory(category)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                                    ${selectedCategory === category
-                                        ? 'bg-[#cd0b5c] text-white'
-                                        : 'bg-[#70c6f5]/80 text-gray-800 hover:bg-[#70c6f5]'}`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
+                <div className="absolute top-40 right-10 w-32 h-32 md:w-48 md:h-48 text-[#ff1744] opacity-30">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <path d="M50 10 
+                                C60 10, 70 20, 70 30
+                                C70 40, 90 40, 90 50
+                                C90 60, 70 60, 70 70
+                                C70 80, 60 90, 50 90
+                                C40 90, 30 80, 30 70
+                                C30 60, 10 60, 10 50
+                                C10 40, 30 40, 30 30
+                                C30 20, 40 10, 50 10Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
 
-                    <div className="mt-8 space-y-4 max-w-3xl mx-auto">
-                        {filteredFAQs.map((item, index) => (
-                            <div
-                                key={index}
-                                className="bg-[#70c6f5]/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-sm"
-                            >
-                                <button
-                                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[#70c6f5] transition-colors"
-                                    onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                                >
-                                    <span className="text-gray-800 font-medium">{item.question}</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className={`h-5 w-5 text-gray-800 transition-transform ${expandedIndex === index ? 'transform rotate-180' : ''}`}
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
-                                </button>
-                                {expandedIndex === index && (
-                                    <div className="px-6 py-4 border-t border-white/20">
-                                        <p className="text-gray-800 whitespace-pre-line">{item.answer}</p>
-                                    </div>
-                                )}
+                <div className="relative z-10 grid gap-8 max-w-4xl mx-auto">
+                    {filteredFAQs.map((faq, index) => (
+                        <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                            <h2 className="text-[#ff3e6b] text-2xl font-bungee mb-4">{faq.question}</h2>
+                            <div className="text-[#2d3748] space-y-4 prose max-w-none">
+                                {faq.answer}
                             </div>
-                        ))}
-                    </div>
-                </Container>
-            </Section>
-        </>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </main>
     );
 } 

@@ -20,19 +20,21 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Determine if we're on the FAQ page
+    // Determine if we're on the FAQ or Portal page
     const isOnFAQ = pathname === '/faq'
+    const isOnPortal = pathname === '/portal'
+    const isOnSpecialPage = isOnFAQ || isOnPortal
 
-    // Match FAQ page colours: bg-[#ede457] and text-[#cd0b5c]
-    const navBackground = isOnFAQ ? 'bg-[#ede457]' : 'bg-[#c7436c]'
+    // Match the vibrant pink and yellow theme
+    const navBackground = isOnSpecialPage ? 'bg-[#ff3e6b]' : 'bg-[#c7436c]'
 
-    const linkClass = `text-xl font-medium transition-colors ${isOnFAQ
-        ? 'text-[#cd0b5c] hover:text-[#8a0940]'
+    const linkClass = `text-xl font-medium transition-colors ${isOnSpecialPage
+        ? 'text-[#ffe234] hover:text-[#fff]'
         : 'text-[#e0ab2a] hover:text-[#ae1231]'
         } font-bungee`
 
-    const rsvpClass = `text-xl font-medium px-4 py-2 rounded-full ${isOnFAQ
-        ? 'bg-[#cd0b5c] text-[#ede457] hover:bg-[#8a0940]'
+    const rsvpClass = `text-xl font-medium px-4 py-2 rounded-full ${isOnSpecialPage
+        ? 'bg-[#ffe234] text-[#ff3e6b] hover:bg-white'
         : 'bg-[#ae1231] text-[#e0ab2a] hover:bg-[#352129]'
         } transition-colors font-bungee`
 
@@ -96,8 +98,8 @@ export default function Navbar() {
                                 <Link
                                     href="/portal"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-3xl font-medium transition-colors ${isOnFAQ
-                                        ? 'text-[#cd0b5c] hover:text-[#8a0940]'
+                                    className={`text-3xl font-medium transition-colors ${isOnSpecialPage
+                                        ? 'text-[#ffe234] hover:text-white'
                                         : 'text-[#e0ab2a] hover:text-[#ae1231]'
                                         } font-bungee`}
                                 >
