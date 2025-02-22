@@ -3,7 +3,7 @@ import Image from "next/image";
 // Component for the Wedding Weekend Overview Section
 export default function WeddingOverviewSection() {
     return (
-        <section className="bg-[var(--section-overview)] text-[var(--section-overview-text)] relative text-gray-900">
+        <section className="bg-[var(--section-overview)] text-[var(--section-overview-text)] relative">
             <div className="flex flex-col md:flex-row">
                 {/* Image Column - Full height, aligned to left edge */}
                 <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">

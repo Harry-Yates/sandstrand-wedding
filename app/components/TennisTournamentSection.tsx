@@ -63,7 +63,7 @@ export default function TennisTournamentSection() {
             </div>
 
             {/* Bottom pink section */}
-            <div className="bg-[var(--section-tennis-othercolor)] text-black">
+            <div className="bg-[var(--section-tennis-othercolor)]   text-[var(--section-tennis-othercolor-text)] ">
                 <div className="flex flex-col md:flex-row">
                     <div className="md:w-1/2 px-4 md:px-16 py-16">
                         {/* Food & Drinks */}

@@ -38,16 +38,16 @@
   --section-overview-text: #1a1a1a;
 
   --section-tennis: #1B8B6A;
-  --section-tennis-othercolor: #e4a6ba;
   --section-tennis-text: #ffffff;
-
+  --section-tennis-othercolor: #e4a6ba;
+  --section-tennis-othercolor-text: #1a1a1a;
   --section-wedding: #FF8C69;
   --section-wedding-othercolor: #ff3e6b;
   --section-wedding-text: #1a1a1a;
 
   --section-beach: #87CEEB;
   --section-beach-othercolor: #ff3e6b;
-  --section-beach-text: #1a1a1a; */
+  --section-beach-text: #1a1a1a;
 
   /* Section colours - Option 2 (Bold Alternative) */
 
@@ -56,8 +56,9 @@
   --section-overview-text: #ffffff;
 
   --section-tennis: #2ECC71;
-  --section-tennis-othercolor: #ff3e6b;
   --section-tennis-text: #ffffff;
+  --section-tennis-othercolor: #ff3e6b;
+  --section-tennis-othercolor-text: #ffffff;
 
   --section-wedding: #9B59B6;
   --section-wedding-othercolor: #ff3e6b;
@@ -66,7 +67,6 @@
   --section-beach: #3498DB;
   --section-beach-othercolor: #ff3e6b;
   --section-beach-text: #ffffff;
-
 }
 
 /* Dark theme */
