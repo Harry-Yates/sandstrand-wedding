@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabase/client';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function RSVPPage() {
     const [formState, setFormState] = useState('initial');
@@ -430,6 +431,7 @@ export default function RSVPPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

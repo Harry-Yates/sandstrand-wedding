@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 interface FAQItem {
     question: string;
@@ -236,6 +237,7 @@ export default function FAQPage() {
                     ))}
                 </div>
             </div>
+            <Footer />
         </main>
     );
 } 
