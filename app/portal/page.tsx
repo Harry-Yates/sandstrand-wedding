@@ -334,25 +334,25 @@ export default function AdminPage() {
 
                     {/* Dashboard Stats */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                        <div className="bg-background-secondary p-6 rounded-lg">
-                            <h3 className="text-text-secondary text-sm font-medium">Total Responses</h3>
-                            <p className="text-text-primary text-2xl font-bold mt-2">{responses.length}</p>
+                        <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
+                            <h3 className="text-text-secondary text-sm font-medium mb-1">Total Responses</h3>
+                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">{responses.length}</p>
                         </div>
-                        <div className="bg-background-secondary p-6 rounded-lg">
-                            <h3 className="text-text-secondary text-sm font-medium">Total Attending</h3>
-                            <p className="text-text-primary text-2xl font-bold mt-2">{totalAttending}</p>
+                        <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
+                            <h3 className="text-text-secondary text-sm font-medium mb-1">Total Attending</h3>
+                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">{totalAttending}</p>
                         </div>
-                        <div className="bg-background-secondary p-6 rounded-lg">
-                            <h3 className="text-text-secondary text-sm font-medium">Response Rate</h3>
-                            <p className="text-text-primary text-2xl font-bold mt-2">
+                        <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
+                            <h3 className="text-text-secondary text-sm font-medium mb-1">Response Rate</h3>
+                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">
                                 {responses.length > 0
                                     ? `${Math.round((responses.filter(r => r.attending).length / responses.length) * 100)}%`
                                     : '0%'
                                 }
                             </p>
                         </div>
-                        <div className="bg-background-secondary p-6 rounded-lg">
-                            <h3 className="text-text-secondary text-sm font-medium">Tennis Level Breakdown</h3>
+                        <div className="bg-background-secondary p-4 rounded-lg">
+                            <h3 className="text-text-secondary text-sm font-medium mb-1">Tennis Level Breakdown</h3>
                             <ul className="mt-2">
                                 {Object.entries(tennisCounts).map(([level, count]) => (
                                     <li key={level} className="text-text-primary text-lg">

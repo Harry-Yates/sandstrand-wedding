@@ -48,7 +48,6 @@ export default function Home() {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-6 sm:px-8 mx-auto">
@@ -70,7 +69,7 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator - Moved outside the text container */}
-          <div className="absolute bottom-8 left-[calc(50%-8px)]  transform -translate-x-1/2 animate-bounce z-20">
+          <div className="absolute bottom-8 left-[calc(50%-8px)] transform -translate-x-1/2 animate-bounce z-20">
             <svg
               className="w-8 h-8 text-[#98fb6a]"
               fill="none"
