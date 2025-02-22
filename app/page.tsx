@@ -37,7 +37,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[95dvh] md:min-h-[80dvh] flex items-center justify-center">
+        <section className="relative min-h-[98dvh] flex items-center justify-center">
           <div className="absolute inset-0">
             {/* <UnsplashImageHolder /> */}
             <Image
@@ -52,22 +52,36 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-6 sm:px-8 mx-auto">
-            {/* Improved responsive typography */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bungee mb-8 md:mb-16 mt-4 md:mt-8 leading-tight md:leading-none">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bungee mb-6 md:mb-12 mt-4 md:mt-8 leading-tight md:leading-none">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
-            <p className="text-xl sm:text-2xl text-center mb-8 font-light">
+            <p className="text-xl sm:text-2xl text-center mb-6 font-light">
               Join us for our celebration
             </p>
-            <p className="text-2xl sm:text-3xl text-center font-medium mb-8">
+            <p className="text-2xl sm:text-3xl text-center font-medium mb-6">
               June 19-21, 2025
             </p>
-            <p className="text-xl sm:text-2xl text-center mb-16">
+            <p className="text-xl sm:text-2xl text-center mb-12">
               📍 Båstad, Sweden
             </p>
             <div className="mt-8 md:mt-16">
               <SparkleButton />
             </div>
+          </div>
+
+          {/* Scroll Indicator - Moved outside the text container */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+            <svg
+              className="w-8 h-8 text-[#98fb6a]"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
           </div>
         </section>
 
