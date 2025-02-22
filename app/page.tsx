@@ -37,7 +37,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-[80vh] flex items-center justify-center">
+        <section className="relative min-h-[70dvh] md:h-[80vh] flex items-center justify-center">
           <div className="absolute inset-0">
             {/* <UnsplashImageHolder /> */}
             <Image
@@ -52,8 +52,8 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/30" />
           </div>
           <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-4">
-            {/* Responsive heading - smaller on mobile, larger on desktop */}
-            <h2 className="text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
+            {/* Improved responsive typography */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bungee mb-8 md:mb-16 mt-4 md:mt-8 leading-tight md:leading-none">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
             <p className="text-xl sm:text-2xl text-center mb-8 font-light">
@@ -65,17 +65,19 @@ export default function Home() {
             <p className="text-xl sm:text-2xl text-center mb-16">
               📍 Båstad, Sweden
             </p>
-            <div className="mt-16">
+            <div className="mt-8 md:mt-16">
               <SparkleButton />
             </div>
           </div>
         </section>
 
-        {/* Wedding Weekend Overview Section */}
-        <WeddingOverviewSection />
-        <TennisTournamentSection />
-        <WeddingDaySection />
-        <BeachPartySection />
+        {/* Main content sections - removed nested main element */}
+        <div className="space-y-16">
+          <WeddingOverviewSection />
+          <TennisTournamentSection />
+          <WeddingDaySection />
+          <BeachPartySection />
+        </div>
       </main>
     </div>
   );
