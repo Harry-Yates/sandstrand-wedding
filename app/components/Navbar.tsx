@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import AnimatedMenuButton from './AnimatedMenuButton'
 
 export default function Navbar() {
