@@ -127,9 +127,13 @@ export default function AdminPage() {
         }
     };
 
-    // Compute unique tennis levels from responses
+    // Compute unique tennis levels from responses (filtering out null values with a type guard)
     const uniqueTennisLevels = Array.from(
-        new Set(responses.map(response => response.tennis_level).filter(Boolean))
+        new Set(
+            responses
+                .map(response => response.tennis_level)
+                .filter((level): level is string => level !== null)
+        )
     );
 
     // Aggregate tennis level counts for dashboard stats
