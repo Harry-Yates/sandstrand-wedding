@@ -4,11 +4,13 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 // import { ThemeToggle } from './ThemeToggle'
 import { useTheme } from '@/context/ThemeContext'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { theme } = useTheme()
+    const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,12 +20,22 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Always include blur background in the navbar,
-    // add a shadow if the page is scrolled.
-    const navBackground = `bg-[#c7436c]`
+    // Determine if we're on the FAQ page
+    const isOnFAQ = pathname === '/faq'
 
-    const linkClass = `text-xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`
-    const rsvpClass = "text-xl font-medium px-4 py-2 rounded-full bg-[#ae1231] text-[#e0ab2a] hover:bg-[#352129] transition-colors font-bungee"
+    // Match FAQ page colours: bg-[#ede457] and text-[#cd0b5c]
+    const navBackground = isOnFAQ ? 'bg-[#ede457]' : 'bg-[#c7436c]'
+
+    const linkClass = `text-xl font-medium transition-colors ${isOnFAQ
+        ? 'text-[#cd0b5c] hover:text-[#8a0940]'
+        : 'text-[#e0ab2a] hover:text-[#ae1231]'
+        } font-bungee`
+
+    const rsvpClass = `text-xl font-medium px-4 py-2 rounded-full ${isOnFAQ
+        ? 'bg-[#cd0b5c] text-[#ede457] hover:bg-[#8a0940]'
+        : 'bg-[#ae1231] text-[#e0ab2a] hover:bg-[#352129]'
+        } transition-colors font-bungee`
+
     const portalClass = linkClass
 
     return (
@@ -79,12 +91,15 @@ export default function Navbar() {
 
                     {/* Mobile Navigation */}
                     {isMenuOpen && (
-                        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#c7436c] p-4">
+                        <div className={`md:hidden absolute top-16 left-0 right-0 ${navBackground} p-4`}>
                             <div className="flex flex-col space-y-4">
                                 <Link
                                     href="/portal"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
+                                    className={`text-3xl font-medium transition-colors ${isOnFAQ
+                                        ? 'text-[#cd0b5c] hover:text-[#8a0940]'
+                                        : 'text-[#e0ab2a] hover:text-[#ae1231]'
+                                        } font-bungee`}
                                 >
                                     Portal
                                 </Link>
