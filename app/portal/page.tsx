@@ -457,7 +457,7 @@ export default function AdminPage() {
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-background divide-y divide-border">
+                                    <tbody className="bg-white divide-y divide-border">
                                         {sortedResponses.map((response) => (
                                             <tr key={response.id} className="hover:bg-background-tertiary">
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.name}</td>
