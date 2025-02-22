@@ -114,10 +114,7 @@ const faqItems: FAQItem[] = [
 ];
 
 export default function FAQPage() {
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-    const [selectedCategory, setSelectedCategory] = useState<string>("All");
-
-    const categories = ["All", ...Array.from(new Set(faqItems.map(item => item.category)))];
+    const [selectedCategory] = useState<string>("All");
 
     const filteredFAQs = selectedCategory === "All"
         ? faqItems

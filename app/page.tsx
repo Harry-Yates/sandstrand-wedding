@@ -54,7 +54,7 @@ export default function Home() {
           <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-4">
             {/* Responsive heading - smaller on mobile, larger on desktop */}
             <h2 className="text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
-              JOHANNA & SEBASTIAN'S WEDDING WEEKEND
+              JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
             <p className="text-xl sm:text-2xl text-center mb-8 font-light">
               Join us for our celebration
