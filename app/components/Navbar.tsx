@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -15,7 +16,12 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const navBackground = 'bg-[#ff3e6b]'
+    const navBackground = isMenuOpen
+        ? 'bg-[#ff3e6b]'
+        : `${isScrolled
+            ? 'md:bg-[#ff3e6b] bg-transparent backdrop-blur-sm'
+            : 'bg-[#ff3e6b]'
+        }`
 
     const linkClass = `text-xl font-medium transition-colors text-[#ffe234] hover:text-white font-bungee`
 
@@ -54,19 +60,15 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile menu button */}
-                    <div className="md:hidden">
+                    <div className="md:hidden relative z-[101]">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="text-[#ffe234] hover:text-white focus:outline-none"
+                            className={`text-[#ffe234] hover:text-white focus:outline-none relative`}
                         >
                             {isMenuOpen ? (
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
+                                <XMarkIcon className="h-8 w-8" />
                             ) : (
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
+                                <Bars3Icon className="h-8 w-8" />
                             )}
                         </button>
                     </div>
