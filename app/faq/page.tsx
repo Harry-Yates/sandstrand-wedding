@@ -226,7 +226,7 @@ export default function FAQPage() {
                     </svg>
                 </div>
 
-                <div className="relative z-10 grid gap-8 max-w-4xl mx-auto mb-20">
+                <div className="relative grid gap-8 max-w-4xl mx-auto mb-20">
                     {filteredFAQs.map((faq, index) => (
                         <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                             <h2 className="text-[#ff3e6b] text-2xl font-bungee mb-4">{faq.question}</h2>
