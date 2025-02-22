@@ -72,7 +72,7 @@ export default function Home() {
         </section>
 
         {/* Main content sections - removed nested main element */}
-        <div className="space-y-16">
+        <div>
           <WeddingOverviewSection />
           <TennisTournamentSection />
           <WeddingDaySection />
