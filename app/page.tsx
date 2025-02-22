@@ -1,13 +1,12 @@
-'use client';
-
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "./components/Navbar";
 import WeddingOverviewSection from "./components/WeddingOverviewSection";
 import TennisTournamentSection from "./components/TennisTournamentSection";
 import WeddingDaySection from "./components/WeddingDaySection";
 import BeachPartySection from "./components/BeachPartySection";
 import { Metadata } from "next/types";
-import SparkleButton from "@/components/SparkleButton";
+import SparkleButton from "./components/SparkleButton";
 
 export const metadata: Metadata = {
   title: "Johanna & Sebastian's Wedding Weekend",
@@ -56,7 +55,7 @@ export default function Home() {
           <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-4">
             {/* Responsive heading - smaller on mobile, larger on desktop */}
             <h2 className="text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
-              JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
+              JOHANNA & SEBASTIAN'S WEDDING WEEKEND
             </h2>
             <p className="text-xl sm:text-2xl text-center mb-8 font-light">
               Join us for our celebration
