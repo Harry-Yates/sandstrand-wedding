@@ -52,24 +52,20 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-black/30" />
           </div>
-          <div className="relative z-10 text-center text-white max-w-2xl px-4">
+          <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-4">
             {/* Responsive heading - smaller on mobile, larger on desktop */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl bungee-regular mb-4 leading-tight tracking-wide">
-              JOHANNA &amp; SEBASTIAN&apos;S WEDDING&nbsp;WEEKEND
+            <h2 className="text-6xl md:text-8xl font-bungee mb-16 text-center mt-8">
+              JOHANNA & SEBASTIAN'S WEDDING WEEKEND
             </h2>
-
-            {/* Changed from Sigmar to Bungee */}
-            <p className="text-lg sm:text-xl mb-4 sm:mb-6 bungee-regular tracking-wide">
-              June 19-21, 2025 |&nbsp;📍&nbsp;Båstad,&nbsp;Sweden
+            <p className="text-xl sm:text-2xl text-center mb-4 font-light">
+              Join us for our celebration
             </p>
-
-            {/* Changed to Quicksand for better readability */}
-            <p className="text-base sm:text-lg mb-6 sm:mb-8 quicksand-regular max-w-prose mx-auto font-medium">
-              A weekend filled with love, laughter, and&nbsp;celebration—come&nbsp;join&nbsp;us!
+            <p className="text-2xl sm:text-3xl text-center mb-16">
+              June 20th - 22nd 2024
             </p>
-
-            {/* Replace the existing RSVP Link with SparkleButton */}
-            <SparkleButton />
+            <div className="mt-16">
+              <SparkleButton />
+            </div>
           </div>
         </section>
 
