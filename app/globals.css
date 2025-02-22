@@ -10,7 +10,8 @@
   --color-primary-dark: #be123c;
 
   /* Neutral colours - clean white theme */
-  --color-background: #ffffff;
+  /* --color-background: #ffffff; */
+  --color-background: #ff3e6b;
   --color-background-secondary: #ffffff;
   --color-background-tertiary: #fafafa;
   --color-background-overlay: rgba(0, 0, 0, 0.1);
