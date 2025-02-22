@@ -127,9 +127,9 @@ export default function FAQPage() {
     return (
         <>
             <Navbar />
-            <Section dark>
+            <Section className="bg-gradient-to-b from-[#ede457] to-[#ede457]/80">
                 <Container>
-                    <Title dark>Frequently Asked Questions</Title>
+                    <Title className="text-[#cd0b5c]">Frequently Asked Questions</Title>
 
                     {/* Category Filter */}
                     <div className="flex flex-wrap justify-center gap-2 mb-8 mt-4">
@@ -139,8 +139,8 @@ export default function FAQPage() {
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
                                     ${selectedCategory === category
-                                        ? 'bg-primary text-white'
-                                        : 'bg-background-secondary text-text-primary hover:bg-primary/10'}`}
+                                        ? 'bg-[#cd0b5c] text-white'
+                                        : 'bg-[#70c6f5]/80 text-gray-800 hover:bg-[#70c6f5]'}`}
                             >
                                 {category}
                             </button>
@@ -151,17 +151,16 @@ export default function FAQPage() {
                         {filteredFAQs.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-background-secondary rounded-lg overflow-hidden"
+                                className="bg-[#70c6f5]/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-sm"
                             >
                                 <button
-                                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-background-tertiary transition-colors"
+                                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[#70c6f5] transition-colors"
                                     onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                                 >
-                                    <span className="text-text-primary font-medium">{item.question}</span>
+                                    <span className="text-gray-800 font-medium">{item.question}</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className={`h-5 w-5 text-text-secondary transition-transform ${expandedIndex === index ? 'transform rotate-180' : ''
-                                            }`}
+                                        className={`h-5 w-5 text-gray-800 transition-transform ${expandedIndex === index ? 'transform rotate-180' : ''}`}
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -175,8 +174,8 @@ export default function FAQPage() {
                                     </svg>
                                 </button>
                                 {expandedIndex === index && (
-                                    <div className="px-6 py-4 border-t border-border">
-                                        <p className="text-text-primary whitespace-pre-line">{item.answer}</p>
+                                    <div className="px-6 py-4 border-t border-white/20">
+                                        <p className="text-gray-800 whitespace-pre-line">{item.answer}</p>
                                     </div>
                                 )}
                             </div>
