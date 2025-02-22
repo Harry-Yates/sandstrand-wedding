@@ -51,8 +51,8 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-black/30" />
           </div>
-          <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bungee mb-6 md:mb-12 mt-4 md:mt-8 leading-tight md:leading-none">
+          <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl font-bungee mb-6 md:mb-12 mt-4 md:mt-8 leading-tight md:leading-none">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
             <p className="text-xl sm:text-2xl text-center mb-6 font-light">
