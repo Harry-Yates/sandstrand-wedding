@@ -300,7 +300,7 @@ export default function RSVPPage() {
                                                     value={formData.bus_pickup_location}
                                                     onChange={(e) => setFormData({ ...formData, bus_pickup_location: e.target.value })}
                                                 >
-                                                    <option value="">I'll make my own way</option>
+                                                    <option value="">I&apos;ll make my own way</option>
                                                     <option value="riviera_strand">Riviera Strand</option>
                                                     <option value="skansen">Skansen</option>
                                                 </select>

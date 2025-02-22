@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { Container } from '@/components/ui'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
