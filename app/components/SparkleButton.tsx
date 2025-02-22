@@ -42,8 +42,8 @@ const SparkleButton = () => {
                     relative overflow-hidden
                     inline-flex items-center justify-center
                     px-8 py-4 rounded-full
-                    bg-[#ae1231] text-[#e0ab2a]
-                    hover:bg-[#ae1231]/90
+                    bg-[#ff3e6b] text-[#ffe234]
+                    hover:bg-[#ff3e6b]/90
                     transition-all duration-300
                     font-bungee text-lg sm:text-xl
                     transform hover:scale-105
