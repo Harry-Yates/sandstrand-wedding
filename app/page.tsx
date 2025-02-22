@@ -38,7 +38,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[100dvh] flex items-center justify-center">
+        <section className="relative h-[99vh] flex items-center justify-center">
           <div className="absolute inset-0">
             {/* <UnsplashImageHolder /> */}
             <Image
