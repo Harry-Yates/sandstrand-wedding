@@ -7,7 +7,7 @@ export default function TennisTournamentSection() {
             <div className="bg-[#1B8B6A] text-white">
                 <div className="flex flex-col md:flex-row">
                     <div className="md:w-1/2 py-16 px-4 md:px-16">
-                        <h2 className="text-2xl sm:text-3xl bungee-regular mb-8">
+                        <h2 className="text-2xl sm:text-3xl bungee-regular mb-8 text-center">
                             🎾 Sandstrand Tennis Tournament - Wimbledon&nbsp;Vibes!
                         </h2>
 
