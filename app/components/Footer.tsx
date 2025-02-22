@@ -22,11 +22,11 @@ export default function Footer() {
     }
 
     return (
-        <footer className="bg-[#ff3e6b] text-[#ffe234] py-6">
+        <footer className="bg-[#ff3e6b] text-[#ffe234] py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center justify-center space-y-4">
+                <div className="flex flex-col items-center justify-center space-y-6">
                     {/* Copyright text */}
-                    <p className="text-center font-bungee">
+                    <p className="text-center font-bungee text-xl sm:text-2xl">
                         © {new Date().getFullYear()} Johanna & Sebastian.
                     </p>
 
@@ -36,7 +36,7 @@ export default function Footer() {
                         className={`
                             fixed bottom-8 right-8 
                             bg-[#ffe234] text-[#ff3e6b] 
-                            rounded-full p-3
+                            rounded-full p-4
                             hover:bg-white transition-all
                             shadow-lg
                             ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}
@@ -44,7 +44,7 @@ export default function Footer() {
                         aria-label="Scroll to top"
                     >
                         <svg
-                            className="w-6 h-6"
+                            className="w-8 h-8"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
