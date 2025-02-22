@@ -20,10 +20,10 @@ export default function Navbar() {
 
     // Always include blur background in the navbar,
     // add a shadow if the page is scrolled.
-    const navBackground = `bg-background/90 backdrop-blur-lg ${isScrolled ? 'shadow-sm' : ''}`
+    const navBackground = `bg-[#c7436c]`
 
-    const linkClass = `text-sm font-medium transition-colors hover:text-primary ${theme === 'light' ? 'text-text-primary' : 'text-white'}`
-    const rsvpClass = "text-sm font-medium px-4 py-2 rounded-full bg-primary text-white hover:bg-primary-light transition-colors"
+    const linkClass = `text-xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`
+    const rsvpClass = "text-xl font-medium px-4 py-2 rounded-full bg-[#ae1231] text-[#e0ab2a] hover:bg-[#352129] transition-colors font-bungee"
     const adminClass = linkClass
 
     return (
@@ -93,7 +93,7 @@ export default function Navbar() {
             {/* Mobile Navigation Overlay */}
             {isMenuOpen && (
                 <div
-                    className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md flex flex-col"
+                    className="fixed inset-0 z-[100] bg-[#c7436c] flex flex-col"
                 >
                     <div className="flex justify-end p-4">
                         <button
@@ -116,28 +116,28 @@ export default function Navbar() {
                         <Link
                             href="/"
                             onClick={() => setIsMenuOpen(false)}
-                            className={`text-center text-xl font-medium transition-colors hover:text-primary ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
+                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
                         >
                             Home
                         </Link>
                         <Link
                             href="/faq"
                             onClick={() => setIsMenuOpen(false)}
-                            className={`text-center text-xl font-medium transition-colors hover:text-primary ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
+                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
                         >
                             FAQ
                         </Link>
                         <Link
                             href="/admin"
                             onClick={() => setIsMenuOpen(false)}
-                            className={`text-center text-xl font-medium transition-colors hover:text-primary ${theme === 'light' ? 'text-text-primary' : 'text-white'}`}
+                            className={`text-3xl font-medium transition-colors hover:text-[#ae1231] text-[#e0ab2a] font-bungee`}
                         >
                             Admin
                         </Link>
                         <Link
                             href="/rsvp"
                             onClick={() => setIsMenuOpen(false)}
-                            className="text-center text-xl font-medium py-3 px-4 bg-[#d3415d] text-white rounded-full transition-colors hover:bg-[#d3415d]"
+                            className="text-3xl font-medium py-3 px-4 bg-[#ae1231] text-[#e0ab2a] rounded-full transition-colors hover:bg-[#352129] font-bungee"
                         >
                             RSVP
                         </Link>

@@ -117,46 +117,26 @@ export default function AdminPage() {
         return (
             <>
                 <Navbar />
-                <Section dark>
+                <Section className="bg-[#c7436c]">
                     <Container>
-                        <Title dark>Admin Login</Title>
-                        <div className="max-w-md mx-auto mt-8">
-                            <form onSubmit={handleLogin} className="bg-background-secondary rounded-lg p-8 space-y-6">
-                                <div>
-                                    <label htmlFor="password" className="block text-sm font-medium text-text-primary mb-1">
-                                        Password
-                                    </label>
-                                    <input
-                                        type="password"
-                                        id="password"
-                                        required
-                                        className="mt-1 block w-full rounded-md border-border bg-background 
-                                                 text-text-primary shadow-sm px-3 py-2
-                                                 focus:border-primary focus:ring-primary sm:text-sm 
-                                                 transition-colors"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Enter admin password"
-                                    />
-                                </div>
-
-                                {error && (
-                                    <div className="text-status-error text-sm">
-                                        {error}
-                                    </div>
-                                )}
-
+                        <div className="max-w-md mx-auto mt-20">
+                            <Title variant="light" className="mb-8 text-[#e0ab2a]">Admin Login</Title>
+                            <div className="bg-[#352129] p-8 rounded-lg shadow-lg">
+                                <input
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Enter password"
+                                    className="w-full p-3 mb-4 rounded border border-[#e0ab2a]/20 bg-[#ae1231]/10 text-[#e0ab2a] placeholder-[#e0ab2a]/70"
+                                />
                                 <button
-                                    type="submit"
-                                    className="w-full bg-primary text-white py-3 px-4 rounded-md 
-                                             hover:bg-primary-light transition-colors focus:outline-none 
-                                             focus:ring-2 focus:ring-primary focus:ring-offset-2
-                                             disabled:opacity-50 disabled:cursor-not-allowed"
-                                    disabled={loading}
+                                    onClick={handleLogin}
+                                    className="w-full bg-[#ae1231] text-[#e0ab2a] font-bold py-3 px-4 rounded hover:bg-[#ae1231]/90 transition-colors"
                                 >
-                                    {loading ? 'Logging in...' : 'Login'}
+                                    Login
                                 </button>
-                            </form>
+                                {error && <p className="mt-4 text-[#ae1231] text-center">{error}</p>}
+                            </div>
                         </div>
                     </Container>
                 </Section>
