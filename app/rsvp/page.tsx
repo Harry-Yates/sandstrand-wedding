@@ -194,7 +194,7 @@ export default function RSVPPage() {
                 </div>
 
                 <div className="relative z-10 max-w-2xl mx-auto mb-20">
-                    <div className="bg-white/95 backdrop-blur-md rounded-xl p-10 shadow-2xl">
+                    <div className="bg-white/95 backdrop-blur-md rounded-xl p-10 shadow-2xl  rsvp-form">
                         {formState === 'success' ? (
                             <div className="text-center">
                                 <h3 className="text-[#ff3e6b] text-2xl font-bungee mb-4">Thank you!</h3>

@@ -198,3 +198,12 @@ html {
     box-shadow: 0 0 40px rgba(186, 251, 116, 0.4);
   }
 }
+
+/* Add a class to override the tennis ball cursor */
+.cursor-default {
+  cursor: default !important;
+}
+
+.rsvp-form {
+  cursor: default !important;
+}

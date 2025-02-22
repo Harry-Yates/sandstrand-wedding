@@ -73,33 +73,33 @@ export default function Navbar() {
 
                     {/* Mobile Navigation */}
                     {isMenuOpen && (
-                        <div className={`md:hidden absolute top-16 left-0 right-0 ${navBackground} p-4`}>
-                            <div className="flex flex-col space-y-4">
+                        <div className={`md:hidden fixed inset-0 ${navBackground} flex items-center justify-center h-screen w-screen`}>
+                            <div className="flex flex-col space-y-8 items-center">
                                 <Link
                                     href="/"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={linkClass}
+                                    className={`${linkClass} text-3xl`}
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     href="/faq"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={linkClass}
+                                    className={`${linkClass} text-3xl`}
                                 >
                                     FAQ
                                 </Link>
                                 <Link
                                     href="/portal"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={linkClass}
+                                    className={`${linkClass} text-3xl`}
                                 >
                                     Portal
                                 </Link>
                                 <Link
                                     href="/rsvp"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={rsvpClass}
+                                    className={`${rsvpClass} text-3xl`}
                                 >
                                     RSVP
                                 </Link>
