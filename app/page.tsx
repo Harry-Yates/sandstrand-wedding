@@ -70,7 +70,7 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator - Moved outside the text container */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+          <div className="absolute bottom-8 left-[calc(50%-8px)]  transform -translate-x-1/2 animate-bounce z-20">
             <svg
               className="w-8 h-8 text-[#98fb6a]"
               fill="none"
