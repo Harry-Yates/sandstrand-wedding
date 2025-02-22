@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WeddingDaySection() {
     return (
-        <section className="bg-[#FF8C69] relative text-gray-900">
+        <section className="bg-[var(--section-wedding)] text-[var(--section-wedding-text)] relative text-gray-900">
             <div className="flex flex-col md:flex-row">
                 {/* Image Column - Full height, aligned to left edge */}
                 <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">

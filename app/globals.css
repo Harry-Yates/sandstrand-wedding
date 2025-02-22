@@ -30,6 +30,43 @@
   --color-warning: #eab308;
   --color-error: #dc2626;
   --color-info: #3b82f6;
+
+  /* Section colours - Option 1 (Current) */
+
+  /* --section-overview: #e4a6ba;
+  --section-overview-othercolor: #ff3e6b;
+  --section-overview-text: #1a1a1a;
+
+  --section-tennis: #1B8B6A;
+  --section-tennis-othercolor: #e4a6ba;
+  --section-tennis-text: #ffffff;
+
+  --section-wedding: #FF8C69;
+  --section-wedding-othercolor: #ff3e6b;
+  --section-wedding-text: #1a1a1a;
+
+  --section-beach: #87CEEB;
+  --section-beach-othercolor: #ff3e6b;
+  --section-beach-text: #1a1a1a; */
+
+  /* Section colours - Option 2 (Bold Alternative) */
+
+  --section-overview: #E74C3C;
+  --section-overview-othercolor: #ff3e6b;
+  --section-overview-text: #ffffff;
+
+  --section-tennis: #2ECC71;
+  --section-tennis-othercolor: #ff3e6b;
+  --section-tennis-text: #ffffff;
+
+  --section-wedding: #9B59B6;
+  --section-wedding-othercolor: #ff3e6b;
+  --section-wedding-text: #ffffff;
+
+  --section-beach: #3498DB;
+  --section-beach-othercolor: #ff3e6b;
+  --section-beach-text: #ffffff;
+
 }
 
 /* Dark theme */

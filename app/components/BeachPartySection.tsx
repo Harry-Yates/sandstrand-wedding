@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function BeachPartySection() {
     return (
-        <section className="bg-[#87CEEB] relative text-gray-900">
+        <section className="bg-[var(--section-beach)] text-[var(--section-beach-text)] relative">
             <div className="flex flex-col md:flex-row">
                 {/* Content Column */}
                 <div className="md:w-1/2 py-16 px-4 md:px-16">
