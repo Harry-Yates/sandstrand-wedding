@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
+import AnimatedMenuButton from './AnimatedMenuButton'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -61,16 +62,10 @@ export default function Navbar() {
 
                     {/* Mobile menu button */}
                     <div className="md:hidden relative z-[101]">
-                        <button
+                        <AnimatedMenuButton
+                            isOpen={isMenuOpen}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className={`text-[#ffe234] hover:text-white focus:outline-none relative`}
-                        >
-                            {isMenuOpen ? (
-                                <XMarkIcon className="h-8 w-8" />
-                            ) : (
-                                <Bars3Icon className="h-8 w-8" />
-                            )}
-                        </button>
+                        />
                     </div>
 
                     {/* Mobile Navigation */}
