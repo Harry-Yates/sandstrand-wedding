@@ -26,11 +26,11 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/" className="flex items-center space-x-2 group" onClick={() => setIsMenuOpen(false)}>
                         <img
-                            src="https://img.freepik.com/premium-vector/monogram-logo-with-initials-js-wedding-logo-design-custom-wreath-wedding-monogram-crest-initial-wedding-logo_553860-762.jpg"
+                            src=""
                             alt="JS Monogram Logo"
-                            className="h-12 w-12 rounded-full object-contain"
+                            className="h-12 w-12 rounded-full object-contain transition-transform duration-500 group-hover:rotate-180 hover:scale-110"
                         />
                     </Link>
 
