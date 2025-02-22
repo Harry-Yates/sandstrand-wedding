@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { supabase } from '../../lib/supabase/client';
-import { Container } from '@/components/ui';
 import Navbar from '@/components/Navbar';
 
 export default function RSVPPage() {

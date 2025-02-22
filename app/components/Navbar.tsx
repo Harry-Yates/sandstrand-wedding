@@ -2,8 +2,6 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-// import { ThemeToggle } from './ThemeToggle'
-import { useTheme } from '@/context/ThemeContext'
 import { usePathname } from 'next/navigation'
 
 export default function Navbar() {

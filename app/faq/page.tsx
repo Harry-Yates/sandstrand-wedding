@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Container, Title, Section } from '@/components/ui';
 import Navbar from '@/components/Navbar';
 
 interface FAQItem {
