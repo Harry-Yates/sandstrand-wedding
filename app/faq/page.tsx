@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
 
 interface FAQItem {
     question: string;
@@ -115,11 +116,23 @@ const faqItems: FAQItem[] = [
 ];
 
 export default function FAQPage() {
-    const [selectedCategory] = useState<string>("All");
+    const [selectedCategory, setSelectedCategory] = useState<string>("All");
+    const [expandedItems, setExpandedItems] = useState<number[]>([]);
+
+    // Get unique categories
+    const categories = ["All", ...new Set(faqItems.map(item => item.category))];
 
     const filteredFAQs = selectedCategory === "All"
         ? faqItems
         : faqItems.filter(item => item.category === selectedCategory);
+
+    const toggleItem = (index: number) => {
+        setExpandedItems(prev =>
+            prev.includes(index)
+                ? prev.filter(i => i !== index)
+                : [...prev, index]
+        );
+    };
 
     return (
         <main className="min-h-screen bg-[#ff3e6b] pt-32 pb-20">
@@ -128,6 +141,23 @@ export default function FAQPage() {
                 <h1 className="text-[#ffe234] text-6xl md:text-8xl font-bungee mb-16 text-center mt-8 relative z-50">
                     FAQ
                 </h1>
+
+                {/* Category Pills */}
+                <div className="flex flex-wrap gap-2 justify-center mb-8 relative z-50">
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            onClick={() => setSelectedCategory(category)}
+                            className={`px-4 py-2 rounded-full font-bungee text-sm transition-all
+                                ${selectedCategory === category
+                                    ? 'bg-[#ffe234] text-[#ff3e6b] shadow-lg scale-105'
+                                    : 'bg-white/90 text-[#ff3e6b] hover:bg-[#ffe234] hover:scale-105'
+                                }`}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                </div>
 
                 {/* Unique arrangement of decorative elements for FAQ */}
                 {/* Large top-right feature */}
@@ -226,12 +256,30 @@ export default function FAQPage() {
                     </svg>
                 </div>
 
-                <div className="relative grid gap-8 max-w-4xl mx-auto mb-20">
+                {/* FAQ Items */}
+                <div className="relative grid gap-4 max-w-4xl mx-auto mb-20">
                     {filteredFAQs.map((faq, index) => (
-                        <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
-                            <h2 className="text-[#ff3e6b] text-2xl font-bungee mb-4">{faq.question}</h2>
-                            <div className="text-[#2d3748] space-y-4 prose max-w-none">
-                                {faq.answer}
+                        <div
+                            key={index}
+                            className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all"
+                        >
+                            <button
+                                onClick={() => toggleItem(index)}
+                                className="w-full text-left p-6 flex justify-between items-center"
+                            >
+                                <h2 className="text-[#ff3e6b] text-xl font-bungee pr-8">{faq.question}</h2>
+                                <ChevronDownIcon
+                                    className={`w-6 h-6 text-[#ff3e6b] transition-transform duration-300 ${expandedItems.includes(index) ? 'rotate-180' : ''
+                                        }`}
+                                />
+                            </button>
+                            <div
+                                className={`overflow-hidden transition-all duration-300 ease-in-out
+                                    ${expandedItems.includes(index) ? 'max-h-96' : 'max-h-0'}`}
+                            >
+                                <div className="p-6 pt-0 text-[#2d3748] prose max-w-none">
+                                    {faq.answer}
+                                </div>
                             </div>
                         </div>
                     ))}
