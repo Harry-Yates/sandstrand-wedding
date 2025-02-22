@@ -37,7 +37,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[70dvh] md:h-[80vh] flex items-center justify-center">
+        <section className="relative min-h-[95dvh] md:min-h-[80dvh] flex items-center justify-center">
           <div className="absolute inset-0">
             {/* <UnsplashImageHolder /> */}
             <Image
@@ -51,7 +51,7 @@ export default function Home() {
 
             <div className="absolute inset-0 bg-black/30" />
           </div>
-          <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-4">
+          <div className="relative z-10 text-center text-[#98fb6a] max-w-2xl px-6 sm:px-8 mx-auto">
             {/* Improved responsive typography */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bungee mb-8 md:mb-16 mt-4 md:mt-8 leading-tight md:leading-none">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
