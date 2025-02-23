@@ -21,17 +21,17 @@ export default function BeachPartySection() {
                     <div className="space-y-6">
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">🍕 Pizza Buffet & Drinks</h3>
-                            <p>– because beach parties need fuel!</p>
+                            <p>Because beach parties need fuel!</p>
                         </div>
 
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">🌊 Swim, dance, and relax</h3>
-                            <p>with good vibes & music!</p>
+                            <p>With good vibes & music!</p>
                         </div>
 
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">👗 Dress Code: Beach Chic</h3>
-                            <p>– flowy dresses, linen shirts, and swimsuits underneath!</p>
+                            <p>Flowy dresses, linen shirts, and swimsuits underneath!</p>
                         </div>
 
                         <p className="text-center mt-8 text-xl">
