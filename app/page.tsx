@@ -41,10 +41,11 @@ export default function Home() {
               alt="Wedding background"
               fill
               priority
-              className="object-cover object-[center_30%]"
+              className="object-cover object-[center_35%]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent via-35% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
           </div>
           <div className="relative z-10 text-center text-[#f3ff56] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto pt-32">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bungee mb-8 md:mb-10 leading-tight">
