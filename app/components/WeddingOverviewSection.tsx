@@ -14,7 +14,7 @@ export default function WeddingOverviewSection() {
                                 srcSet="/assets/images/IMG_1081-landscape.webp"
                             />
                             <Image
-                                src="/assets/images/IMG_1081.jpg"
+                                src="/assets/images/IMG_1081-landscape.webp"
                                 alt="Wedding background"
                                 fill
                                 priority
