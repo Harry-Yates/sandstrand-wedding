@@ -6,7 +6,7 @@ import WeddingOverviewSection from "./components/WeddingOverviewSection";
 import TennisTournamentSection from "./components/TennisTournamentSection";
 import WeddingDaySection from "./components/WeddingDaySection";
 import BeachPartySection from "./components/BeachPartySection";
-import { Metadata } from "next/types";
+
 import SparkleButton from "./components/SparkleButton";
 import Footer from "./components/Footer";
 import WeddingOverviewSectionSv from "./components/WeddingOverviewSectionSv";

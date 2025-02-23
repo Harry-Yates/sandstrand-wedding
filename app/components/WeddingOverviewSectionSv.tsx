@@ -43,7 +43,7 @@ export default function WeddingOverviewSectionSv() {
                             <strong className="text-xl block mb-2 bungee-regular">
                                 💍 Fredag 20 juni – Bröllopsdag & Fest!
                             </strong>
-                            Det stora ögonblicket! Vi säger "Ja!" och firar med en fantastisk fest. 🥂
+                            Det stora ögonblicket! Vi säger &quot;Ja!&quot; och firar med en fantastisk fest. 🥂
                             <br />
                             <strong>⛪ Vigsel:</strong> Hovs Kyrka | ⏰ 14:30
                             <br />
