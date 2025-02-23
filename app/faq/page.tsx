@@ -121,7 +121,7 @@ const faqItems: FAQItem[] = [
         question: "What should I get as a wedding gift?",
         answer: "Honestly, your presence is the best gift! But if you'd like to give something extra, here are two options:<br/><br/>" +
             "1️⃣ Donate to <a href='https://erikshjalpen.se/skank-pengar/?utm_term=erikshj%C3%A4lpen&utm_campaign=Brand+Erikshj%C3%A4lpen+Exakt&utm_source=adwords&utm_medium=ppc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Erikshjälpen</a>, <a href='https://www.cancerfonden.se/stod-oss/bli-manadsgivare?custom_campaign=G_%7C_Brand_%7C_Core&custom_source=google&custom_medium=cpc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Cancerfonden</a>, <a href='https://www.barndiabetesfonden.se/forskning-typ-1-diabetes/artiklar/?gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Barndiabetesfonden</a> (because love should be shared ❤️)<br/><br/>" +
-            "2️⃣ A gift card from Svenskt Tenn - <a href='https://www.svenskttenn.com/se/sv/sortiment/presentkort/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>link here</a> – no swedish home is complete without a nice vase or a fancy candle holder! 🏡✨ (Yep, it's a bit bougie, but we love it!) 😍"
+            "2️⃣ If you simply must get us something (though your presence is gift enough!) we&apos;d be thrilled with a gift card from <a href='https://www.svenskttenn.com/se/sv/sortiment/presentkort/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Svenskt Tenn</a>"
     },
     {
         category: "Wedding Day",
@@ -324,4 +324,4 @@ export default function FAQPage() {
             <Footer />
         </main>
     );
-} 
+}
