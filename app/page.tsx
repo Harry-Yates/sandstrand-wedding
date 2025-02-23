@@ -41,7 +41,7 @@ export default function Home() {
               alt="Wedding background"
               fill
               priority
-              className="object-cover object-[center_25%]"
+              className="object-cover object-[center_45%]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
