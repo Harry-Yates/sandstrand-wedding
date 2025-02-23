@@ -3,6 +3,18 @@ import Image from "next/image";
 export default function BeachPartySection() {
     return (
         <section className="bg-[var(--section-beach)] text-[var(--section-beach-text)] relative">
+            {/* Show first image on top for mobile */}
+            <div className="md:hidden relative h-[300px] w-full">
+                <Image
+                    src="/assets/images/IMG_8841.jpg"
+                    alt="Beach party collage"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                />
+            </div>
+
             <div className="flex flex-col md:flex-row">
                 {/* Content Column */}
                 <div className="md:w-1/2 py-16 px-4 md:px-16">
@@ -40,9 +52,9 @@ export default function BeachPartySection() {
                     </div>
                 </div>
 
-                {/* Image Column - Right side */}
-                <div className="md:w-1/2">
-                    <div className="h-[600px] md:h-full w-full relative flex flex-col">
+                {/* Image Column - Hidden on mobile, visible on desktop */}
+                <div className="hidden md:block md:w-1/2">
+                    <div className="h-full w-full relative flex flex-col">
                         <div className="relative h-1/2 w-full">
                             <Image
                                 src="/assets/images/IMG_8841.jpg"
@@ -50,7 +62,7 @@ export default function BeachPartySection() {
                                 fill
                                 priority
                                 className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 50vw"
+                                sizes="50vw"
                             />
                         </div>
                         <div className="relative h-1/2 w-full">
@@ -60,11 +72,23 @@ export default function BeachPartySection() {
                                 fill
                                 priority
                                 className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 50vw"
+                                sizes="50vw"
                             />
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* Show second image at bottom for mobile */}
+            <div className="md:hidden relative h-[300px] w-full">
+                <Image
+                    src="/assets/images/IMG_1143.jpg"
+                    alt="Beach party collage"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                />
             </div>
         </section>
     );
