@@ -55,7 +55,7 @@ export default function BeachPartySection() {
                         </div>
                         <div className="relative h-1/2 w-full">
                             <Image
-                                src="/assets/images/IMG_1143.JPG"
+                                src="/assets/images/IMG_1143.jpg"
                                 alt="Beach party collage"
                                 fill
                                 priority
