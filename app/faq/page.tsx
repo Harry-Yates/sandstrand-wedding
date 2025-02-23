@@ -37,12 +37,45 @@ const faqItems: FAQItem[] = [
         question: "Is there a dress code for the wedding?",
         answer: "Yes! Colorful & festive—no dark blue! Think bold colours or pastel."
     },
+    {
+        category: "Dress Code",
+        question: "I don't understand all the different dress codes?!",
+        answer: "No worries, we got you! 🎨✨\n" +
+            "🎾 Wimbledon (Tennis Day): Sporty, but make it stylish! Think tennis whites, green, or pink. Bonus points for headbands & vintage vibes!\n" +
+            "💍 Wedding Day: COLOUR, COLOUR, COLOUR! It can be bright or pastel. We LOVE color and want to celebrate our midsummer wedding in style! It would be fantastic if this could be the first wedding with no navy blue in sight;)\n" +
+            "🏖 Beach Day: Just chill & comfy. Barefoot? Yes. Sand between your toes? Absolutely. 🏝️"
+    },
+    {
+        category: "Dress Code",
+        question: "Do I need to wear a tie?",
+        answer: "Not at all! Ditch the tie, bring the colour! Think summer vibes, not boardroom meetings. 🎨🌞"
+    },
 
     // Transportation & Accommodation
     {
         category: "Transportation & Accommodation",
         question: "How do I get to the wedding?",
         answer: "We have arranged buses from Riviera Strand or Skansen båstad. If you don't stay there then you need to arrange your own transportation or hop on a bus from any of the hotels."
+    },
+    {
+        category: "Transportation & Accommodation",
+        question: "Where am I staying?",
+        answer: "That's up to you, we have reserved rooms at Hotel Torekov, Skansen, Riviera. Those rooms will be released 12 weeks before the wedding starts. (27th of march!)."
+    },
+    {
+        category: "Transportation & Accommodation",
+        question: "How do I get around?",
+        answer: "Buses are provided for the main wedding events, from the two main hotels (rivera & skansen). For everything else, plan your own transport—or make friends with someone with a car! 🚗💨"
+    },
+    {
+        category: "Transportation & Accommodation",
+        question: "How do I get around if I don't have a car or am not near the pick-up hotels?",
+        answer: "Easy! Either befriend someone with a car or book a taxi here: https://taxiengelholm.se/ 🚖 Uber is also an option!"
+    },
+    {
+        category: "Transportation & Accommodation",
+        question: "Will there be an earlier bus from the wedding party?",
+        answer: "Nope! Our one wish? That you dance your heart out until 2 AM! 🪩💃 But if your inner Cinderella needs to leave early, you'll need to arrange your own ride. 🚕✨"
     },
 
     // Beach Party
@@ -64,19 +97,9 @@ const faqItems: FAQItem[] = [
         answer: "No problem! Just let us know in the rsvp questionnaire so we can make sure you're well-fed and happy."
     },
     {
-        category: "Transportation & Accommodation",
-        question: "Where am I staying?",
-        answer: "That's up to you, we have reserved rooms at Hotel Torekov, Skansen, Riviera. Those rooms will be released 12 weeks before the wedding starts. (27th of march!)."
-    },
-    {
         category: "General",
         question: "Can I come for just one day?",
         answer: "Of course! Just let us know which day(s) you'll be joining."
-    },
-    {
-        category: "Transportation & Accommodation",
-        question: "How do I get around?",
-        answer: "Buses are provided for the main wedding events, from the two main hotels (rivera & skansen). For everything else, plan your own transport—or make friends with someone with a car! 🚗💨"
     },
     {
         category: "General",
@@ -87,6 +110,18 @@ const faqItems: FAQItem[] = [
         category: "General",
         question: "Can I bring a plus-one?",
         answer: "If you've got a plus-one, you'll already know! Not sure? Give Johanna & Sebastian a quick check-in. 💌"
+    },
+    {
+        category: "General",
+        question: "Why is the website in English?",
+        answer: "Because we've got amazing guests jetting in from Australia, England & France! 🇦🇺🇬🇧🇫🇷"
+    },
+    {
+        category: "General",
+        question: "What should I get as a wedding gift?",
+        answer: "Honestly, your presence is the best gift! But if you'd like to give something extra, here are two options:<br/><br/>" +
+            "1️⃣ Donate to <a href='https://erikshjalpen.se/skank-pengar/?utm_term=erikshj%C3%A4lpen&utm_campaign=Brand+Erikshj%C3%A4lpen+Exakt&utm_source=adwords&utm_medium=ppc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Erikshjälpen</a>, <a href='https://www.cancerfonden.se/stod-oss/bli-manadsgivare?custom_campaign=G_%7C_Brand_%7C_Core&custom_source=google&custom_medium=cpc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Cancerfonden</a>, <a href='https://www.barndiabetesfonden.se/forskning-typ-1-diabetes/artiklar/?gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Barndiabetesfonden</a> (because love should be shared ❤️)<br/><br/>" +
+            "2️⃣ A gift card from Svenskt Tenn - <a href='https://www.svenskttenn.com/se/sv/sortiment/presentkort/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>link here</a> – no swedish home is complete without a nice vase or a fancy candle holder! 🏡✨ (Yep, it's a bit bougie, but we love it!) 😍"
     },
     {
         category: "Wedding Day",
@@ -277,9 +312,10 @@ export default function FAQPage() {
                                 className={`overflow-hidden transition-all duration-300 ease-in-out
                                     ${expandedItems.includes(index) ? 'max-h-96' : 'max-h-0'}`}
                             >
-                                <div className="p-6 pt-0 text-[#2d3748] prose max-w-none">
-                                    {faq.answer}
-                                </div>
+                                <div
+                                    className="p-6 pt-0 text-[#2d3748] prose max-w-none"
+                                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                                />
                             </div>
                         </div>
                     ))}
