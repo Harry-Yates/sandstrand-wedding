@@ -39,6 +39,9 @@ export default function AdminPage() {
     const [sortField, setSortField] = useState('');
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
+    // Add new state for status filter
+    const [filterStatus, setFilterStatus] = useState<'all' | 'yes' | 'no'>('all');
+
     // Fetch responses when authenticated
     useEffect(() => {
         if (isAuthenticated) {
@@ -143,16 +146,23 @@ export default function AdminPage() {
         return acc;
     }, {} as Record<string, number>);
 
-    // Filter responses based on search query and tennis level filter
+    // Update the filteredResponses logic to include status filtering
     const filteredResponses = responses.filter(response => {
         const queryMatch =
             filterQuery === '' ||
             response.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
             response.email.toLowerCase().includes(filterQuery.toLowerCase());
+
         const tennisMatch =
             filterTennisLevel === 'All' ||
             response.tennis_level === filterTennisLevel;
-        return queryMatch && tennisMatch;
+
+        const statusMatch =
+            filterStatus === 'all' ||
+            (filterStatus === 'yes' && response.attending) ||
+            (filterStatus === 'no' && !response.attending);
+
+        return queryMatch && tennisMatch && statusMatch;
     });
 
     // Sort the filtered responses based on the selected sort field and direction
@@ -383,6 +393,37 @@ export default function AdminPage() {
                                 </option>
                             ))}
                         </select>
+
+                        {/* Status Toggle Group */}
+                        <div className="flex rounded-lg border border-gray-300 overflow-hidden">
+                            <button
+                                onClick={() => setFilterStatus('all')}
+                                className={`px-4 py-3 text-sm font-medium ${filterStatus === 'all'
+                                    ? 'bg-[#ff3e6b] text-white'
+                                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                                    }`}
+                            >
+                                All
+                            </button>
+                            <button
+                                onClick={() => setFilterStatus('yes')}
+                                className={`px-4 py-3 text-sm font-medium border-l border-gray-300 ${filterStatus === 'yes'
+                                    ? 'bg-[#ff3e6b] text-white'
+                                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                                    }`}
+                            >
+                                Attending
+                            </button>
+                            <button
+                                onClick={() => setFilterStatus('no')}
+                                className={`px-4 py-3 text-sm font-medium border-l border-gray-300 ${filterStatus === 'no'
+                                    ? 'bg-[#ff3e6b] text-white'
+                                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                                    }`}
+                            >
+                                Not Attending
+                            </button>
+                        </div>
                     </div>
 
                     {/* Loading State */}
@@ -408,41 +449,35 @@ export default function AdminPage() {
                                         <tr>
                                             <th
                                                 onClick={() => handleSort('name')}
-                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                                className="cursor-pointer px-3 sm:px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
                                             >
                                                 Name{sortField === 'name' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
                                             </th>
                                             <th
                                                 onClick={() => handleSort('email')}
-                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
+                                                className="cursor-pointer hidden sm:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
                                             >
                                                 Email{sortField === 'email' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Status
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                                                Bus Pickup
+                                            <th className="hidden md:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Bus
                                             </th>
-                                            <th
-                                                onClick={() => handleSort('tennis_level')}
-                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
-                                            >
-                                                Tennis{sortField === 'tennis_level' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Tennis
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                            <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Days
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                            <th className="hidden xl:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Notes
                                             </th>
-                                            <th
-                                                onClick={() => handleSort('created_at')}
-                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
-                                            >
-                                                Date{sortField === 'created_at' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
+                                            <th className="hidden sm:table-cell px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                                Date
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                            <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Actions
                                             </th>
                                         </tr>
@@ -450,34 +485,77 @@ export default function AdminPage() {
                                     <tbody className="bg-white divide-y divide-border">
                                         {sortedResponses.map((response) => (
                                             <tr key={response.id} className="hover:bg-background-tertiary">
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.email}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                <td className="px-3 sm:px-6 py-4 text-sm text-text-primary">
+                                                    <div className="sm:hidden space-y-2">
+                                                        <div className="text-xs text-text-secondary">
+                                                            {new Date(response.created_at).toLocaleDateString()}
+                                                        </div>
+                                                        <div className="font-medium">{response.name}</div>
+                                                        <div className="text-sm text-text-secondary">{response.email}</div>
+                                                        {response.guests > 0 && (
+                                                            <div className="text-sm">
+                                                                Guests: <span className="text-text-primary">{response.guests}</span>
+                                                            </div>
+                                                        )}
+                                                        {response.bus_pickup_location && (
+                                                            <div className="text-sm">
+                                                                Bus: <span className="text-text-primary">{response.bus_pickup_location}</span>
+                                                            </div>
+                                                        )}
+                                                        {response.tennis_level && (
+                                                            <div className="text-sm">
+                                                                Tennis: <span className="text-text-primary">{response.tennis_level}</span>
+                                                            </div>
+                                                        )}
+                                                        <div className="text-sm">
+                                                            Days: <span className="text-text-primary">
+                                                                {response.attending_days?.all_days ? 'All Days' :
+                                                                    [
+                                                                        response.attending_days?.tennis_day && 'Tennis',
+                                                                        response.attending_days?.wedding_day && 'Wedding',
+                                                                        response.attending_days?.beach_day && 'Beach'
+                                                                    ].filter(Boolean).join(', ') || '-'
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                        {response.additional_notes && (
+                                                            <div className="text-sm">
+                                                                <div className="text-text-secondary">Notes:</div>
+                                                                <div className="text-text-primary mt-1 whitespace-normal">
+                                                                    {response.additional_notes}
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <div className="hidden sm:block">{response.name}</div>
+                                                </td>
+                                                <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.email}</td>
+                                                <td className="px-3 sm:px-6 py-4 whitespace-nowrap">
                                                     <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${response.attending
                                                         ? 'bg-status-success/10 text-status-success'
                                                         : 'bg-status-error/10 text-status-error'
                                                         }`}>
-                                                        {response.attending ? 'Attending' : 'Not Attending'}
+                                                        {response.attending ? 'Yes' : 'No'}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.bus_pickup_location || '-'}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.tennis_level || '-'}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">
-                                                    {response.attending_days?.all_days ? 'All Days' :
+                                                <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.bus_pickup_location || '-'}</td>
+                                                <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.tennis_level || '-'}</td>
+                                                <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-text-primary">
+                                                    {response.attending_days?.all_days ? 'All' :
                                                         [
-                                                            response.attending_days?.tennis_day && 'Tennis',
-                                                            response.attending_days?.wedding_day && 'Wedding',
-                                                            response.attending_days?.beach_day && 'Beach'
+                                                            response.attending_days?.tennis_day && 'T',
+                                                            response.attending_days?.wedding_day && 'W',
+                                                            response.attending_days?.beach_day && 'B'
                                                         ].filter(Boolean).join(', ') || '-'
                                                     }
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-normal text-sm text-text-primary max-w-xs">
+                                                <td className="hidden xl:table-cell px-6 py-4 whitespace-normal text-sm text-text-primary max-w-xs">
                                                     {response.additional_notes || '-'}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-secondary">
+                                                <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-text-secondary">
                                                     {new Date(response.created_at).toLocaleDateString()}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                                                <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
                                                     <button
                                                         onClick={() => handleDelete(response.id)}
                                                         disabled={deleteLoading === response.id}
