@@ -7,7 +7,7 @@ export default function BeachPartySection() {
                 {/* Content Column */}
                 <div className="md:w-1/2 py-16 px-4 md:px-16">
                     <h2 className="text-2xl sm:text-3xl bungee-regular mb-8 text-center">
-                        🏖️ Sandstrand Wedding Weekend – Beach Party!
+                        🏖️ Beach Party!
                     </h2>
 
                     <h3 className="text-xl text-center mb-4">
