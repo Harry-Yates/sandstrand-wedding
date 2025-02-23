@@ -102,9 +102,26 @@ const SparkleButton = () => {
                     pointer-events: none;
                 }
 
-                .group:hover .particle {
-                    opacity: var(--alpha, 1);
-                    animation-play-state: running;
+                /* Show particles always on mobile */
+                @media (max-width: 768px) {
+                    .particle {
+                        opacity: var(--alpha, 1);
+                        animation-play-state: running;
+                    }
+                    .spark {
+                        opacity: 1;
+                    }
+                }
+
+                /* Only show on hover for larger screens */
+                @media (min-width: 769px) {
+                    .group:hover .particle {
+                        opacity: var(--alpha, 1);
+                        animation-play-state: running;
+                    }
+                    .group:hover .spark {
+                        opacity: 1;
+                    }
                 }
 
                 @keyframes float-out {
@@ -123,10 +140,6 @@ const SparkleButton = () => {
                     animation: flip 2.5s infinite steps(2, end);
                     pointer-events: none;
                     opacity: 0;
-                }
-
-                .group:hover .spark {
-                    opacity: 1;
                 }
 
                 @keyframes flip {
