@@ -34,7 +34,7 @@ export default function Home() {
       </button> */}
       <main>
         {/* Hero Section */}
-        <section className="relative h-[99vh] flex items-center justify-center">
+        <section className="relative h-[700px] sm:h-[800px] md:h-[900px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/assets/images/IMG_1027.jpg"
@@ -46,7 +46,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
           </div>
-          <div className="relative z-10 text-center text-[#f3ff56] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto mt-[45vh]">
+          <div className="relative z-10 text-center text-[#f3ff56] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto">
             <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl font-bungee mb-6 md:mb-12 leading-tight md:leading-none">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
@@ -62,21 +62,6 @@ export default function Home() {
             <div className="mt-8 md:mt-16">
               <SparkleButton />
             </div>
-          </div>
-
-          {/* Scroll Indicator - Moved outside the text container */}
-          <div className="absolute bottom-8 left-[calc(50%-8px)] transform -translate-x-1/2 animate-bounce z-20">
-            <svg
-              className="w-8 h-8 text-[#98fb6a]"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
           </div>
         </section>
 

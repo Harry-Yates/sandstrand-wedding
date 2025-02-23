@@ -8,23 +8,20 @@ export default function WeddingOverviewSection() {
                 {/* Image Column - Full height, aligned to left edge */}
                 <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">
                     <div className="h-[300px] md:h-full w-full relative">
-                        {/* <UnsplashImageHolder /> */}
-                        <Image
-                            src="/assets/images/IMG_1081.jpg"
-                            alt="Wedding background"
-                            fill
-                            priority
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <Image
-                            src="/assets/images/IMG_1081.jpg"
-                            alt="Wedding background"
-                            fill
-                            priority
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
+                        <picture>
+                            <source
+                                media="(max-width: 768px)"
+                                srcSet="/assets/images/IMG_1081-landscape.webp"
+                            />
+                            <Image
+                                src="/assets/images/IMG_1081.jpg"
+                                alt="Wedding background"
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                        </picture>
                     </div>
                 </div>
 
