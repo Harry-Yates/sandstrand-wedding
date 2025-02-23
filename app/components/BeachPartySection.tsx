@@ -42,15 +42,27 @@ export default function BeachPartySection() {
 
                 {/* Image Column - Right side */}
                 <div className="md:w-1/2">
-                    <div className="h-[300px] md:h-full w-full relative">
-                        <Image
-                            src="/assets/images/pool.png"
-                            alt="Beach party collage"
-                            fill
-                            priority
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
+                    <div className="h-[600px] md:h-full w-full relative flex flex-col">
+                        <div className="relative h-1/2 w-full">
+                            <Image
+                                src="/assets/images/IMG_8841.jpg"
+                                alt="Beach party collage"
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                        </div>
+                        <div className="relative h-1/2 w-full">
+                            <Image
+                                src="/assets/images/IMG_1143.JPG"
+                                alt="Beach party collage"
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
