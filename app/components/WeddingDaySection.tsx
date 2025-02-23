@@ -63,7 +63,7 @@ export default function WeddingDaySection() {
 
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">⛪ 14:30 - Wedding Ceremony at Hovs Kyrka</h3>
-                            <p>The big moment! We'll say "I do," you might shed a happy tear (or two), and love will be in the air. 💕</p>
+                            <p>The big moment! We&apos;ll say &quot;I do,&quot; you might shed a happy tear (or two), and love will be in the air. 💕</p>
                         </div>
 
                         <div className="bg-white/20 p-6 rounded-xl">
@@ -73,7 +73,7 @@ export default function WeddingDaySection() {
 
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">🌿 16:30 - Dance Around the Midsummer Pole</h3>
-                            <p>Let's embrace Swedish traditions! Expect hopping, twirling, and lots of laughter. Comfortable shoes highly recommended! 🐸✨</p>
+                            <p>Let&apos;s embrace Swedish traditions! Expect hopping, twirling, and lots of laughter. Comfortable shoes highly recommended! 🐸✨</p>
                         </div>
 
                         <div className="bg-white/20 p-6 rounded-xl">
@@ -89,11 +89,11 @@ export default function WeddingDaySection() {
                         <div className="bg-white/20 p-6 rounded-xl">
                             <h3 className="text-xl mb-4 bungee-regular">🌈 Dress Code: Colorful & Festive 🎨</h3>
                             <p>We LOVE color and want to celebrate our midsummer wedding in style! Bright, joyful shades or soft and dreamy pastels—suits & dresses in any fun, vibrant, or light color are perfect.</p>
-                            <p className="mt-2">🚫 Kindly avoid navy blue. Let's make this a rainbow of happiness! ✨🌸</p>
+                            <p className="mt-2">🚫 Kindly avoid navy blue. Let&apos;s make this a rainbow of happiness! ✨🌸</p>
                         </div>
 
                         <p className="text-center mt-8 text-xl">
-                            We can't wait to celebrate with you! 🥂💃
+                            We can&apos;t wait to celebrate with you! 🥂💃
                         </p>
                     </div>
                 </div>

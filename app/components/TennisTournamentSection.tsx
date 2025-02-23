@@ -21,7 +21,7 @@ export default function TennisTournamentSection() {
                     <div className="bg-white/10 p-6 rounded-xl mb-6">
                         <h3 className="font-bold mb-2">🎾 Dress Code: Wimbledon Chic</h3>
                         <h3 className="text-xl mb-4 bungee-regular">Game, Set, Love!</h3>
-                        <p>We're kicking off the wedding weekend with a tennis tournament for EVERYONE! No matter your skill level, grab a racket and join the fun—we'll have mini tennis doubles and regular doubles, so there's a game for everyone!</p>
+                        <p>We&apos;re kicking off the wedding weekend with a tennis tournament for EVERYONE! No matter your skill level, grab a racket and join the fun—we&apos;ll have mini tennis doubles and regular doubles, so there&apos;s a game for everyone!</p>
                     </div>
 
                     {/* Schedule */}
@@ -62,7 +62,7 @@ export default function TennisTournamentSection() {
                         <div className="bg-white/10 p-6 rounded-xl mb-6">
                             <h3 className="font-bold mb-2">🎾 Dress Code: Wimbledon Chic</h3>
                             <p>White, green, or pink—channel your inner Federer, Serena, or McEnroe (tantrums optional).</p>
-                            <p className="mt-2">Playing? Wear active tennis attire so you can move, run, and (attempt to) smash some winners! Don't Forget to Bring a Racket.</p>
+                            <p className="mt-2">Playing? Wear active tennis attire so you can move, run, and (attempt to) smash some winners! Don&apos;t Forget to Bring a Racket.</p>
                             <p className="mt-2">Watching? Dress like a stylish Wimbledon spectator—think summer whites, polos, and chic tennis dresses.</p>
                         </div>
 
