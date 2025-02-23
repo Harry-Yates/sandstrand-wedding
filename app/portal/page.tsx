@@ -12,7 +12,6 @@ interface RSVPResponse {
     email: string;
     attending: boolean;
     guests: number;
-    meal_preference: string | null;
     bus_pickup_location: string | null;
     tennis_level: string | null;
     attending_days: {
@@ -422,15 +421,6 @@ export default function AdminPage() {
                                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Status
                                             </th>
-                                            <th
-                                                onClick={() => handleSort('guests')}
-                                                className="cursor-pointer px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider"
-                                            >
-                                                Guests{sortField === 'guests' ? (sortDirection === 'asc' ? ' ▲' : ' ▼') : ''}
-                                            </th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                                                Meal
-                                            </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
                                                 Bus Pickup
                                             </th>
@@ -470,8 +460,6 @@ export default function AdminPage() {
                                                         {response.attending ? 'Attending' : 'Not Attending'}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.guests}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.meal_preference || '-'}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.bus_pickup_location || '-'}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">{response.tennis_level || '-'}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-text-primary">

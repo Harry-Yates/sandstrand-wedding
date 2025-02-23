@@ -12,7 +12,6 @@ export default function RSVPPage() {
         email: '',
         attending: 'yes',
         guests: '0',
-        meal_preference: '',
         bus_pickup_location: '',
         tennis_level: '',
         attending_days: {
@@ -47,7 +46,6 @@ export default function RSVPPage() {
                 name: formData.name,
                 email: formData.email,
                 attending: formData.attending === 'yes',
-                meal_preference: formData.meal_preference || null,
                 bus_pickup_location: formData.bus_pickup_location || null,
                 tennis_level: formData.tennis_level || null,
                 attending_days: formData.attending_days || null,
@@ -267,26 +265,6 @@ export default function RSVPPage() {
 
                                     {formData.attending === 'yes' && (
                                         <>
-                                            {/* Meal Preference Select */}
-                                            <div>
-                                                <label htmlFor="meal" className="block text-gray-800 font-medium mb-2">
-                                                    Meal Preference <span className="text-[#ff3e6b]">*</span>
-                                                </label>
-                                                <select
-                                                    id="meal"
-                                                    required
-                                                    className="w-full px-5 py-3 rounded-md border border-gray-300 bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
-                                                    value={formData.meal_preference}
-                                                    onChange={(e) => setFormData({ ...formData, meal_preference: e.target.value })}
-                                                >
-                                                    <option value="">Please select...</option>
-                                                    <option value="meat">Meat</option>
-                                                    <option value="fish">Fish</option>
-                                                    <option value="vegetarian">Vegetarian</option>
-                                                    <option value="vegan">Vegan</option>
-                                                </select>
-                                            </div>
-
                                             {/* Bus Pickup Location Select */}
                                             <div>
                                                 <label htmlFor="bus" className="block text-gray-800 font-medium mb-2">
