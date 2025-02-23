@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
     images: [
       {
-        url: "https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.png",
+        url: "https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.webp",
         width: 1200,
         height: 630,
         alt: "Johanna and Sebastian's Wedding",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Johanna & Sebastian's Wedding Weekend",
     description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
-    images: ["https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.png"],
+    images: ["https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.webp"],
   },
 };
 
