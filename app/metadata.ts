@@ -1,22 +1,4 @@
-import type { Metadata } from "next/types";
-import { Bungee, Quicksand } from 'next/font/google';
-import "./globals.css";
-import { ThemeProvider } from './context/ThemeContext';
-
-// Configure Bungee
-const bungee = Bungee({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-bungee',
-  display: 'swap',
-});
-
-// Configure Quicksand for better paragraph readability
-const quicksand = Quicksand({
-  subsets: ['latin'],
-  variable: '--font-quicksand',
-  display: 'swap',
-});
+import { Metadata } from "next/types";
 
 export const metadata: Metadata = {
   title: "Johanna & Sebastian's Wedding Weekend",
@@ -39,20 +21,4 @@ export const metadata: Metadata = {
     description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
     images: ["https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.webp"],
   },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={`${bungee.variable} ${quicksand.variable} antialiased`}>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  );
-}
+}; 

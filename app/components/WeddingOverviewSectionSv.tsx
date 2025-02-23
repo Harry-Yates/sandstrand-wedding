@@ -1,17 +1,16 @@
 import Image from "next/image";
 
-// Component for the Wedding Weekend Overview Section
-export default function WeddingOverviewSection() {
+// Component for the Wedding Weekend Overview Section in Swedish
+export default function WeddingOverviewSectionSv() {
     return (
         <section className="bg-[var(--section-overview)] text-[var(--section-overview-text)] relative">
             <div className="flex flex-col md:flex-row">
                 {/* Image Column - Full height, aligned to left edge */}
                 <div className="md:w-1/2 md:absolute md:left-0 md:top-0 md:bottom-0">
                     <div className="h-[300px] md:h-full w-full relative">
-                        {/* <UnsplashImageHolder /> */}
                         <Image
-                            src="/assets/images/IMG_1081.jpg"
-                            alt="Wedding background"
+                            src="/assets/images/IMG_5463.jpg"
+                            alt="Bröllops bakgrund"
                             fill
                             priority
                             className="object-cover"
@@ -24,43 +23,49 @@ export default function WeddingOverviewSection() {
                 <div className="md:w-1/2 md:ml-[50%] py-16 px-4 md:px-16">
                     {/* Centered Schedule Header */}
                     <h2 className="text-2xl sm:text-3xl bungee-regular mb-8 text-center">
-                        Wedding Weekend&nbsp;Overview
+                        Johanna & Sebastians Bröllopshelg!
                     </h2>
 
                     <ul className="space-y-6">
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
-                                🎾 June 19 – Tennis Tournament
+                                🎾 Torsdag 19 juni – Tennisturnering
                             </strong>
-                            <strong>Plantahagens Tennis Courts</strong> | ⏰ 17:00-21:00
+                            Vi kickar igång helgen med Sandstrand Open, en tennisturnering för ALLA! 🎾 Spela, heja eller bara njut av smörgåstårta & rosé.
                             <br />
-                            <strong>Dress Code:</strong> Wimbledon Chic (white, green, or pink)
+                            <strong>📍 Plantahagens Tennis Courts</strong> | ⏰ 17:00-21:00
                             <br />
-                            Featuring smörgåstårta & rosé wine 🍷✨
+                            <strong>👕 Dresscode:</strong> Wimbledon Chic (vitt, grönt eller rosa)
+                            <br />
+                            🏆 Bonuspoäng för retro look & dramatisk segerglädje!
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
-                                💒 June 20 – Wedding&nbsp;Party
+                                💍 Fredag 20 juni – Bröllopsdag & Fest!
                             </strong>
-                            <strong>Hovs Kyrka</strong> | ⏰ 14:30 Ceremony
+                            Det stora ögonblicket! Vi säger "Ja!" och firar med en fantastisk fest. 🥂
                             <br />
-                            <strong>Buses leave 13:40</strong> (Only from Riviera Strand &amp; Skansen)
+                            <strong>⛪ Vigsel:</strong> Hovs Kyrka | ⏰ 14:30
                             <br />
-                            <strong>Mingle 16:00-17:30</strong> at GW Swensons Lada
+                            <strong>🚌 Bussar avgår 13:40</strong> från Riviera Strand sen till Skansen
                             <br />
-                            Dinner party until 02:00
+                            <strong>💃 Mingel & Midsommardans:</strong> GW Swensons Lada | 16:00-17:30
                             <br />
-                            <strong>Dress Code:</strong> Colourful dress & suite (NO dark blue!)
+                            🌸 Middag & fest: Hela kvällen fram till 02:00!
+                            <br />
+                            <strong>🎨 Dresscode:</strong> Färgfullt & festligt – tänk glada färger, pasteller & sommarvibbar (vi älskar färg så undvik gärna marinblått;)
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
-                                🏖️ June 21 – Beach Party
+                                🏖 Lördag 21 juni – Strandfest!
                             </strong>
-                            <strong>Badkrukan</strong> | 🍕 Pizza & Drinks ⏰ 13:00 Party starts
+                            Vi rundar av med en solig beach party vid Badkrukan! 🌞🌊
                             <br />
-                            Swim, dance, and celebrate!
+                            <strong>📍 Badkrukan Båstad</strong> | ⏰ Från 13:00 & framåt!
                             <br />
-                            <strong>Dress Code:</strong> Beach Chic
+                            🍕 Pizza, drinkar, bad & dans!
+                            <br />
+                            <strong>👗 Dresscode:</strong> Beach Chic – Somrigt och gött, glöm ej badkläder
                         </li>
                     </ul>
                 </div>

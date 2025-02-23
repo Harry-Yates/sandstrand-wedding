@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import WeddingOverviewSection from "./components/WeddingOverviewSection";
@@ -7,35 +9,29 @@ import BeachPartySection from "./components/BeachPartySection";
 import { Metadata } from "next/types";
 import SparkleButton from "./components/SparkleButton";
 import Footer from "./components/Footer";
-
-export const metadata: Metadata = {
-  title: "Johanna & Sebastian's Wedding Weekend",
-  description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025. Tennis tournament, wedding ceremony, and beach party!",
-  openGraph: {
-    title: "Johanna & Sebastian's Wedding Weekend",
-    description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
-    images: [
-      {
-        url: "https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.webp",
-        width: 1200,
-        height: 630,
-        alt: "Johanna and Sebastian's Wedding",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Johanna & Sebastian's Wedding Weekend",
-    description: "Join us for a weekend of celebration in Båstad, Sweden from June 19-21, 2025",
-    images: ["https://raw.githubusercontent.com/Harry-Yates/sandstrand-wedding/refs/heads/main/public/assets/images/Meta.webp"],
-  },
-};
+import WeddingOverviewSectionSv from "./components/WeddingOverviewSectionSv";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  'use client';
+
+  const [isSwedish, setIsSwedish] = useState(false);
+
+  useEffect(() => {
+    // Check if browser language starts with 'sv' (Swedish)
+    const browserLang = navigator.language.toLowerCase();
+    setIsSwedish(browserLang.startsWith('sv'));
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
-
+      {/* <button
+        onClick={() => setIsSwedish(!isSwedish)}
+        className="fixed top-20 right-4 bg-[#98fb6a] text-black px-4 py-2 rounded-md z-[100]"
+      >
+        Switch to {isSwedish ? 'English' : 'Swedish'}
+      </button> */}
       <main>
         {/* Hero Section */}
         <section className="relative h-[99vh] flex items-center justify-center">
@@ -87,7 +83,7 @@ export default function Home() {
 
         {/* Main content sections - removed nested main element */}
         <div>
-          <WeddingOverviewSection />
+          {isSwedish ? <WeddingOverviewSectionSv /> : <WeddingOverviewSection />}
           <TennisTournamentSection />
           <WeddingDaySection />
           <BeachPartySection />
