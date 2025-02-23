@@ -34,32 +34,32 @@ export default function Home() {
       </button> */}
       <main>
         {/* Hero Section */}
-        <section className="relative h-[700px] sm:h-[800px] md:h-[900px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[700px] sm:h-[800px] md:h-[900px] flex items-start justify-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/assets/images/IMG_1027.jpg"
               alt="Wedding background"
               fill
               priority
-              className="object-cover object-[center_45%]"
+              className="object-cover object-[center_15%]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent" />
           </div>
-          <div className="relative z-10 text-center text-[#f3ff56] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto">
-            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl font-bungee mb-6 md:mb-12 leading-tight md:leading-none">
+          <div className="relative z-10 text-center text-[#f3ff56] max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl px-6 sm:px-8 mx-auto pt-32">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bungee mb-8 md:mb-10 leading-tight">
               JOHANNA & SEBASTIAN&apos;S WEDDING WEEKEND
             </h2>
-            <p className="text-xl sm:text-2xl text-center mb-6 font-light">
+            <p className="text-xl sm:text-2xl text-center mb-8 font-light">
               Join us for our celebration
             </p>
-            <p className="text-2xl sm:text-3xl text-center font-medium mb-6">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-center font-medium mb-8">
               June 19-21, 2025
             </p>
-            <p className="text-xl sm:text-2xl text-center mb-12">
+            <p className="text-xl sm:text-2xl text-center mb-16">
               📍 Båstad, Sweden
             </p>
-            <div className="mt-8 md:mt-16">
+            <div className="mt-4">
               <SparkleButton />
             </div>
           </div>
