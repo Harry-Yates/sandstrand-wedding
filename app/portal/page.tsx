@@ -403,7 +403,7 @@ export default function AdminPage() {
                     {!loading && !error && responses.length > 0 && (
                         <div className="bg-background-secondary rounded-lg overflow-hidden">
                             <div className="overflow-x-auto">
-                                <table className="min-w-full divide-y divide-border">
+                                <table className="min-w-full divide-y divide-border rsvp-form">
                                     <thead className="bg-background-tertiary">
                                         <tr>
                                             <th
