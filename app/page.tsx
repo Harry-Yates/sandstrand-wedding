@@ -38,7 +38,7 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* <UnsplashImageHolder /> */}
             <Image
-              src="/assets/images/IMG_1143.jpg"
+              src="/assets/images/IMG_1027.jpg"
               alt="Wedding background"
               fill
               priority

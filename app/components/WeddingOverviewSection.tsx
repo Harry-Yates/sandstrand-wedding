@@ -17,6 +17,14 @@ export default function WeddingOverviewSection() {
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />
+                        <Image
+                            src="/assets/images/IMG_1081.jpg"
+                            alt="Wedding background"
+                            fill
+                            priority
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                     </div>
                 </div>
 
