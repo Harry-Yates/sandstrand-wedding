@@ -24,6 +24,7 @@ export default function WeddingOverviewSectionSv() {
                     {/* Centered Schedule Header */}
                     <h2 className="text-2xl sm:text-3xl bungee-regular mb-8 text-center">
                         Johanna & Sebastians Bröllopshelg!
+                        <div className="text-lg mt-2">📅 19-21 juni 2025 | 📍 Båstad, Sverige</div>
                     </h2>
 
                     <ul className="space-y-6">
@@ -41,13 +42,13 @@ export default function WeddingOverviewSectionSv() {
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
-                                💍 Fredag 20 juni – Bröllopsdag & Fest!
+                                💍 Fredag 20 juni – Den stora bröllopsdagen
                             </strong>
-                            Det stora ögonblicket! Vi säger &quot;Ja!&quot; och firar med en fantastisk fest. 🥂
+                            The Big moment! Vi säger &quot;Ja!&quot; och firar med en fantastisk fest. 🥂
                             <br />
                             <strong>⛪ Vigsel:</strong> Hovs Kyrka | ⏰ 14:30
                             <br />
-                            <strong>🚌 Bussar avgår 13:40</strong> från Riviera Strand sen till Skansen
+                            <strong>🚌 Bussar avgår 13:40</strong> från Riviera Strand sen vidare till Skansen för upphämtning mot kyrkan.
                             <br />
                             <strong>💃 Mingel & Midsommardans:</strong> GW Swensons Lada | 16:00-17:30
                             <br />
@@ -57,15 +58,15 @@ export default function WeddingOverviewSectionSv() {
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
-                                🏖 Lördag 21 juni – Strandfest!
+                                🏖 Lördag 21 juni – Beach party
                             </strong>
-                            Vi rundar av med en solig beach party vid Badkrukan! 🌞🌊
+                            Vi fortsätter att fira bröllopet med ett soligt beach party på Badkrukan! 🌞🌊
                             <br />
                             <strong>📍 Badkrukan Båstad</strong> | ⏰ Från 13:00 & framåt!
                             <br />
                             🍕 Pizza, drinkar, bad & dans!
                             <br />
-                            <strong>👗 Dresscode:</strong> Beach Chic – Somrigt och gött, glöm ej badkläder
+                            <strong>👗 Dresscode:</strong> Beach Chic – Somrigt och gött, glöm ej badkläder!
                         </li>
                     </ul>
                 </div>
