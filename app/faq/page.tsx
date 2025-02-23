@@ -70,7 +70,7 @@ const faqItems: FAQItem[] = [
     {
         category: "Transportation & Accommodation",
         question: "How do I get around if I don't have a car or am not near the pick-up hotels?",
-        answer: "Easy! Either befriend someone with a car or book a taxi here: https://taxiengelholm.se/ 🚖 Uber is also an option!"
+        answer: "Easy! Either befriend someone with a car or <a href='https://taxiengelholm.se/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>book a taxi</a> 🚖 Uber is also an option!"
     },
     {
         category: "Transportation & Accommodation",
