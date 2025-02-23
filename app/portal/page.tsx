@@ -345,15 +345,15 @@ export default function AdminPage() {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                         <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
                             <h3 className="text-text-secondary text-sm font-medium mb-1">Total Responses</h3>
-                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">{responses.length}</p>
+                            <p className="text-text-primary text-4xl sm:text-5xl xl:text-6xl font-bold font-bungee flex-grow flex items-center">{responses.length}</p>
                         </div>
                         <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
                             <h3 className="text-text-secondary text-sm font-medium mb-1">Total Attending</h3>
-                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">{totalAttending}</p>
+                            <p className="text-text-primary text-4xl sm:text-5xl xl:text-6xl font-bold font-bungee flex-grow flex items-center">{totalAttending}</p>
                         </div>
                         <div className="bg-background-secondary p-4 rounded-lg flex flex-col">
                             <h3 className="text-text-secondary text-sm font-medium mb-1">Response Rate</h3>
-                            <p className="text-text-primary text-6xl font-bold font-bungee flex-grow flex items-center">
+                            <p className="text-text-primary text-4xl sm:text-5xl xl:text-6xl font-bold font-bungee flex-grow flex items-center">
                                 {responses.length > 0
                                     ? `${Math.round((responses.filter(r => r.attending).length / responses.length) * 100)}%`
                                     : '0%'
