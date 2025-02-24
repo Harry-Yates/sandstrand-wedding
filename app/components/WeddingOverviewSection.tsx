@@ -55,7 +55,7 @@ export default function WeddingOverviewSection() {
                             <br />
                             Dinner party until 02:00
                             <br />
-                            <strong>Dress Code:</strong> Colourful dress & suite (NO dark blue!)
+                            <strong>Dress Code:</strong> Colourful dress & suit (NO dark blue!)
                         </li>
                         <li className="bg-white/50 p-6 rounded-xl">
                             <strong className="text-xl block mb-2 bungee-regular">
