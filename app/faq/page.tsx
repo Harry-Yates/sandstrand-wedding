@@ -118,10 +118,9 @@ const faqItems: FAQItem[] = [
     },
     {
         category: "General",
-        question: "What should I get as a wedding gift?",
-        answer: "Honestly, your presence is the best gift! But if you'd like to give something extra, here are two options:<br/><br/>" +
-            "1️⃣ Donate to <a href='https://erikshjalpen.se/skank-pengar/?utm_term=erikshj%C3%A4lpen&utm_campaign=Brand+Erikshj%C3%A4lpen+Exakt&utm_source=adwords&utm_medium=ppc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Erikshjälpen</a>, <a href='https://www.cancerfonden.se/stod-oss/bli-manadsgivare?custom_campaign=G_%7C_Brand_%7C_Core&custom_source=google&custom_medium=cpc&gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Cancerfonden</a>, <a href='https://www.barndiabetesfonden.se/forskning-typ-1-diabetes/artiklar/?gad_source=1' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Barndiabetesfonden</a> (because love should be shared ❤️)<br/><br/>" +
-            "2️⃣ If you simply must get us something (though your presence is gift enough!) we&apos;d be thrilled with a gift card from <a href='https://www.svenskttenn.com/se/sv/sortiment/presentkort/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Svenskt Tenn</a>"
+        question: "🎁 Gifts",
+        answer: "Your presence is the best gift we could ask for! ❤️<br/><br/>" +
+            "But if you want to help us remember this amazing day for years to come, we'd be thrilled with a gift card from <a href='https://www.svenskttenn.com/se/sv/sortiment/presentkort/' target='_blank' rel='noopener noreferrer' style='color: #ff3e6b;'>Svenskt Tenn</a>. (You can choose any amount, even a little love starting from 100 kr. 💌)"
     },
     {
         category: "Wedding Day",
